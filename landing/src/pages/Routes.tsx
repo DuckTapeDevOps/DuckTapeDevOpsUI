@@ -11,117 +11,168 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
-import { FaRoute, FaUsers, FaMapMarkerAlt, FaCompass, FaBell } from 'react-icons/fa'
+import { FaSearch, FaDraftingCompass, FaCode, FaGraduationCap } from 'react-icons/fa'
 import { siteConfig } from '../config/site'
 
 const RouteExplorer = () => {
   const cardBg = useColorModeValue('white', 'gray.700')
   const borderColor = useColorModeValue('gray.200', 'gray.600')
 
+  const steps = siteConfig.howItWorks.steps
+
+  const processSteps = [
+    {
+      icon: FaSearch,
+      title: steps[0].title,
+      description: steps[0].description,
+      color: "blue.500"
+    },
+    {
+      icon: FaDraftingCompass,
+      title: steps[1].title,
+      description: steps[1].description,
+      color: "green.500"
+    },
+    {
+      icon: FaCode,
+      title: steps[2].title,
+      description: steps[2].description,
+      color: "orange.500"
+    },
+    {
+      icon: FaGraduationCap,
+      title: steps[3].title,
+      description: steps[3].description,
+      color: "purple.500"
+    }
+  ]
+
   return (
     <Container maxW="container.xl" py={10}>
       <VStack spacing={12} align="stretch">
         {/* Hero Section */}
         <Box textAlign="center" py={10}>
-          <Badge colorScheme="orange" fontSize="lg" px={4} py={2} mb={6} borderRadius="full">
-            COMING SOON
-          </Badge>
           <Heading as="h1" size="2xl" mb={4} color={useColorModeValue('navy.600', 'white')}>
-            Community Route Planning
+            {siteConfig.howItWorks.title}
           </Heading>
           <Text fontSize="xl" mb={8} maxW="3xl" mx="auto" color={useColorModeValue('gray.600', 'gray.300')}>
-            Connect with fellow boaters planning the same routes. Share experiences, 
-            travel together, and make every journey a community adventure.
+            {siteConfig.howItWorks.description}
           </Text>
         </Box>
 
-        {/* Planned Features */}
+        {/* Process Steps */}
         <Box>
-          <Heading as="h2" size="xl" textAlign="center" mb={8} color={useColorModeValue('navy.600', 'white')}>
-            What's Coming
-          </Heading>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
-            <Box p={8} bg={cardBg} borderRadius="xl" textAlign="center" border="2px solid" borderColor={borderColor}>
-              <Icon as={FaUsers} boxSize={12} color="blue.500" mb={4} />
-              <Heading as="h3" size="md" mb={3} color={useColorModeValue('blue.700', 'blue.300')}>Find Travel Buddies</Heading>
-              <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.300')}>
-                Connect with boaters planning similar routes. Travel in fleets for safety and companionship.
-              </Text>
-            </Box>
-            
-            <Box p={8} bg={cardBg} borderRadius="xl" textAlign="center" border="2px solid" borderColor={borderColor}>
-              <Icon as={FaRoute} boxSize={12} color="green.500" mb={4} />
-              <Heading as="h3" size="md" mb={3} color={useColorModeValue('green.700', 'green.300')}>Community Routes</Heading>
-              <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.300')}>
-                Browse routes shared by the community. The Great Loop, Caribbean cruising, and more.
-              </Text>
-            </Box>
-            
-            <Box p={8} bg={cardBg} borderRadius="xl" textAlign="center" border="2px solid" borderColor={borderColor}>
-              <Icon as={FaMapMarkerAlt} boxSize={12} color="purple.500" mb={4} />
-              <Heading as="h3" size="md" mb={3} color={useColorModeValue('purple.700', 'purple.300')}>Hidden Gems</Heading>
-              <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.300')}>
-                Discover secret anchorages and must-visit spots recommended by experienced cruisers.
-              </Text>
-            </Box>
-            
-            <Box p={8} bg={cardBg} borderRadius="xl" textAlign="center" border="2px solid" borderColor={borderColor}>
-              <Icon as={FaCompass} boxSize={12} color="orange.500" mb={4} />
-              <Heading as="h3" size="md" mb={3} color={useColorModeValue('orange.700', 'orange.300')}>Interactive Planning</Heading>
-              <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.300')}>
-                Plan routes collaboratively with your crew and fleet. Share waypoints and timing.
-              </Text>
-            </Box>
-            
-            <Box p={8} bg={cardBg} borderRadius="xl" textAlign="center" border="2px solid" borderColor={borderColor}>
-              <Icon as={FaBell} boxSize={12} color="red.500" mb={4} />
-              <Heading as="h3" size="md" mb={3} color={useColorModeValue('red.700', 'red.300')}>Route Alerts</Heading>
-              <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.300')}>
-                Get notified when connections are planning routes you're interested in.
-              </Text>
-            </Box>
-            
-            <Box p={8} bg={cardBg} borderRadius="xl" textAlign="center" border="2px solid" borderColor={borderColor} opacity={0.7}>
-              <Text fontSize="lg" mb={2}>🚧</Text>
-              <Heading as="h3" size="md" mb={3} color={useColorModeValue('gray.600', 'gray.400')}>More Features</Heading>
-              <Text fontSize="sm" color={useColorModeValue('gray.500', 'gray.400')}>
-                Weather integration, fuel stops, provisioning guides, and community reviews.
-              </Text>
-            </Box>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>
+            {processSteps.map((step, index) => (
+              <Box 
+                key={index}
+                p={8} 
+                bg={cardBg} 
+                borderRadius="xl" 
+                textAlign="center" 
+                border="2px solid" 
+                borderColor={borderColor}
+                position="relative"
+              >
+                <Badge
+                  position="absolute"
+                  top="-3"
+                  left="50%"
+                  transform="translateX(-50%)"
+                  colorScheme="blue"
+                  borderRadius="full"
+                  px={3}
+                  py={1}
+                >
+                  {index + 1}
+                </Badge>
+                <Icon as={step.icon} boxSize={12} color={step.color} mb={4} mt={2} />
+                <Heading as="h3" size="md" mb={3} color={useColorModeValue('navy.600', 'white')}>
+                  {step.title}
+                </Heading>
+                <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.300')}>
+                  {step.description}
+                </Text>
+              </Box>
+            ))}
           </SimpleGrid>
         </Box>
 
-        {/* Community First Message */}
-        <Box bg={useColorModeValue('blue.50', 'gray.700')} p={10} borderRadius="xl" textAlign="center">
+        {/* Approach Details */}
+        <Box bg={useColorModeValue('blue.50', 'gray.700')} p={10} borderRadius="xl">
+          <VStack spacing={8} align="stretch">
+            <Box textAlign="center">
+              <Heading as="h2" size="xl" color={useColorModeValue('navy.600', 'white')} mb={4}>
+                Our Approach
+              </Heading>
+              <Text fontSize="lg" color={useColorModeValue('gray.600', 'gray.300')} maxW="3xl" mx="auto">
+                We focus on practical solutions that your team can maintain and extend. 
+                Every engagement includes knowledge transfer and documentation.
+              </Text>
+            </Box>
+
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+              <Box>
+                <Heading as="h3" size="lg" color={useColorModeValue('navy.600', 'white')} mb={4}>
+                  What You Get
+                </Heading>
+                <VStack align="start" spacing={3}>
+                  <Text color={useColorModeValue('gray.700', 'gray.200')}>
+                    • Production-ready infrastructure code
+                  </Text>
+                  <Text color={useColorModeValue('gray.700', 'gray.200')}>
+                    • Comprehensive documentation
+                  </Text>
+                  <Text color={useColorModeValue('gray.700', 'gray.200')}>
+                    • Team training and knowledge transfer
+                  </Text>
+                  <Text color={useColorModeValue('gray.700', 'gray.200')}>
+                    • Ongoing support during handoff
+                  </Text>
+                </VStack>
+              </Box>
+
+              <Box>
+                <Heading as="h3" size="lg" color={useColorModeValue('navy.600', 'white')} mb={4}>
+                  Why It Works
+                </Heading>
+                <VStack align="start" spacing={3}>
+                  <Text color={useColorModeValue('gray.700', 'gray.200')}>
+                    • Your team owns the infrastructure
+                  </Text>
+                  <Text color={useColorModeValue('gray.700', 'gray.200')}>
+                    • No vendor lock-in or dependency
+                  </Text>
+                  <Text color={useColorModeValue('gray.700', 'gray.200')}>
+                    • Pragmatic solutions over perfection
+                  </Text>
+                  <Text color={useColorModeValue('gray.700', 'gray.200')}>
+                    • Cost-aware design from day one
+                  </Text>
+                </VStack>
+              </Box>
+            </SimpleGrid>
+          </VStack>
+        </Box>
+
+        {/* CTA Section */}
+        <Box textAlign="center" py={10}>
           <VStack spacing={6}>
             <Heading as="h2" size="xl" color={useColorModeValue('navy.600', 'white')}>
-              Community First, Features Second
+              Ready to Get Started?
             </Heading>
-            <Text fontSize="lg" color={useColorModeValue('gray.600', 'gray.300')} maxW="3xl">
-              We're building {siteConfig.brand.name} based on what our community needs most. 
-              Join us now to help shape these features and connect with fellow boaters.
+            <Text fontSize="lg" color={useColorModeValue('gray.600', 'gray.300')} maxW="2xl">
+              Let's discuss your project and how we can help build reliable, scalable infrastructure.
             </Text>
             <Button
               as={RouterLink}
-              to="/community"
+              to="/contact"
               colorScheme="blue"
               size="lg"
               px={8}
             >
-              Join the Community
+              Contact Us
             </Button>
-          </VStack>
-        </Box>
-
-        {/* Notify Me */}
-        <Box textAlign="center">
-          <VStack spacing={4}>
-            <Heading as="h3" size="lg" color={useColorModeValue('navy.600', 'white')}>
-              Want to be notified when route planning launches?
-            </Heading>
-            <Text color={useColorModeValue('gray.600', 'gray.300')}>
-              Join our community and you'll be the first to know when these features go live.
-            </Text>
           </VStack>
         </Box>
       </VStack>

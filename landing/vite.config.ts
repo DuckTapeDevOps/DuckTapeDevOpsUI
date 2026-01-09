@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Changed from '/NavalNomadUI/' to '/' for your domain
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

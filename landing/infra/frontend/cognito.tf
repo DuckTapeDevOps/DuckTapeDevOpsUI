@@ -1,5 +1,5 @@
 # User pool client
-resource "aws_cognito_user_pool_client" "naval_nomad" {
+resource "aws_cognito_user_pool_client" "ducktape_devops" {
   name = "${var.resource_name_prefix}-web-client"
 
   user_pool_id = data.terraform_remote_state.bootstrap.outputs.user_pool_id
@@ -47,14 +47,14 @@ resource "aws_cognito_user_pool_client" "naval_nomad" {
 }
 
 # Update the identity pool with the client configuration
-resource "aws_cognito_identity_pool_roles_attachment" "naval_nomad" {
+resource "aws_cognito_identity_pool_roles_attachment" "ducktape_devops" {
   identity_pool_id = data.terraform_remote_state.bootstrap.outputs.identity_pool_id
   roles = {
     "authenticated" = data.terraform_remote_state.bootstrap.outputs.cognito_auth_role_arn
   }
 
   role_mapping {
-    identity_provider = "cognito-idp.${data.aws_region.current.name}.amazonaws.com/${data.terraform_remote_state.bootstrap.outputs.user_pool_id}:${aws_cognito_user_pool_client.naval_nomad.id}"
+    identity_provider = "cognito-idp.${data.aws_region.current.name}.amazonaws.com/${data.terraform_remote_state.bootstrap.outputs.user_pool_id}:${aws_cognito_user_pool_client.ducktape_devops.id}"
     type = "Token"
     ambiguous_role_resolution = "AuthenticatedRole"
   }
@@ -67,7 +67,7 @@ data "aws_region" "current" {}
 data "terraform_remote_state" "bootstrap" {
   backend = "s3"
   config = {
-    bucket = "naval-nomad-terraform-state"
+    bucket = "ducktape-devops-terraform-state"
     key    = "bootstrap/terraform.tfstate"
     region = "us-east-1"
   }

@@ -97,21 +97,21 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   brand: {
-    name: "Naval Nomad",
-    tagline: "Turning Marinas into Villages",
-    description: "A community-first platform designed to transform marinas from transient stops into vibrant maritime villages.",
+    name: "DuckTapeDevOps",
+    tagline: "Practical Cloud Architecture & DevOps",
+    description: "A hands-on cloud architecture and DevOps consultancy focused on AWS-first platform design, pragmatic infrastructure-as-code, and enabling teams with senior-level technical leadership.",
   },
   metadata: {
-    title: "Naval Nomad - Live Your Dream Life at Sea",
-    description: "Connect with fellow boaters, share your location with your maritime network, and transform every marina from a transient stop into a vibrant community.",
+    title: "DuckTapeDevOps - Practical Cloud Architecture & DevOps",
+    description: "AWS-first cloud architecture and DevOps consultancy. Terraform/OpenTofu, ECS/EKS, serverless, CI/CD, reliability, observability, and cost-aware scaling.",
   },
   navigation: [
     {
-      label: "Community",
+      label: "Services",
       path: "/community",
     },
     {
-      label: "Marina Explorer",
+      label: "Case Studies",
       path: "/marina-explorer",
       badge: {
         text: "BETA",
@@ -119,7 +119,7 @@ export const siteConfig: SiteConfig = {
       },
     },
     {
-      label: "Route Planner",
+      label: "Process",
       path: "/routes",
       disabled: true,
       badge: {
@@ -134,99 +134,99 @@ export const siteConfig: SiteConfig = {
   ],
   contact: {
     waitlistUrl: "https://docs.google.com/forms/d/e/1FAIpQLSe_sD8IZFdH84GxvExbsrJuk78ZrDCIOr5RZMyNHVSPuh-5AQ/viewform?usp=header",
-    waitlistButtonText: "Join Naval Nomad Waitlist",
-    waitlistHeading: "Join the Waitlist",
-    waitlistDescription: "Be among the first to experience Naval Nomad. Sign up for our waitlist to get early access and exclusive updates.",
+    waitlistButtonText: "Get in Touch",
+    waitlistHeading: "Let's Talk",
+    waitlistDescription: "Ready to improve your cloud infrastructure? Get in touch to discuss your project and how we can help.",
   },
   hero: {
-    title: "Live Your Dream Life at Sea",
+    title: "Cloud Architecture That Actually Works",
     subtitle: "",
-    description: "Connect with boat owners and find your perfect liveaboard experience. Whether you're a digital nomad seeking adventure or a boat owner looking to share your vessel.",
+    description: "Senior-level cloud architecture and DevOps expertise. AWS-first design, pragmatic infrastructure-as-code, and hands-on implementation that fixes real-world systems.",
     primaryButton: {
-      text: "Find Your Boat",
-      to: "/",
+      text: "Contact Us",
+      to: "/contact",
     },
     secondaryButton: {
-      text: "List Your Boat",
+      text: "Learn More",
       to: "/",
     },
     image: {
       src: "/brand/hero-image.svg",
-      alt: "Luxury yacht at sunset",
+      alt: "Cloud infrastructure and DevOps architecture",
     },
   },
   home: {
     hero: {
-      title: "Naval Nomad Community",
-      subtitle: "Turning Marinas into Villages",
-      description: "Connect with fellow boaters, share your location with your maritime network, and transform every marina from a transient stop into a vibrant community where you always have friends nearby.",
+      title: "DuckTapeDevOps",
+      subtitle: "Practical Cloud Architecture & DevOps",
+      description: "Senior-level cloud architecture and DevOps expertise. AWS-first design, pragmatic infrastructure-as-code, and hands-on implementation that fixes real-world systems and enables your team.",
       primaryButton: {
-        text: "Join the Community",
-        to: "/community",
+        text: "Get Started",
+        to: "/contact",
       },
-      secondaryText: "Your maritime network awaits • Privacy-first location sharing",
+      secondaryText: "AWS-first • Terraform/OpenTofu • ECS/EKS • Serverless • CI/CD",
     },
     coreFeatures: [
       {
-        title: "Find Your Fleet",
-        description: "See which marina your connections are docked at. Never wonder if friends are nearby again.",
+        title: "Cloud Architecture",
+        description: "AWS-first platform design with ECS/EKS, serverless, and event-driven architectures. Infrastructure that scales with your needs.",
       },
       {
-        title: "Marina Chat",
-        description: "Join location-based conversations. Share local tips, organize meetups, or just say hello.",
+        title: "Infrastructure as Code",
+        description: "Pragmatic Terraform and OpenTofu implementations. Reliable, maintainable infrastructure that your team can own and extend.",
       },
       {
-        title: "Maritime Story",
-        description: "Share your journey, routes, and experiences with the community that gets it.",
+        title: "DevOps & Reliability",
+        description: "CI/CD pipelines, observability, monitoring, and incident response. Systems that work when you need them.",
       },
     ],
     networkFeatures: [
       {
-        title: "Connect",
-        description: "Build your maritime network. Follow fellow boaters and stay connected across anchorages.",
+        title: "Technical Leadership",
+        description: "Senior-level architectural decisions grounded in experience. We solve problems, not just implement solutions.",
       },
       {
-        title: "Share Location",
-        description: "Let your network know where you are. Privacy controls let you choose who sees what level of detail.",
+        title: "Team Enablement",
+        description: "We build systems and knowledge, not dependency. Your team learns, grows, and owns the infrastructure.",
       },
       {
-        title: "Build Community",
-        description: "Transform every marina from a transient stop into a place where you have friends.",
+        title: "Pragmatic Solutions",
+        description: "Real-world engineering over hype. We fix systems cleanly, even when duct tape is required.",
       },
     ],
     networkLevels: [
       {
-        badge: "CONNECTIONS",
+        badge: "CONSULTING",
         badgeColor: "blue",
-        title: "Connections",
-        description: "Your broader maritime network - follow and connect with the friends you make along your journey",
+        title: "Consulting",
+        description: "Architectural guidance and technical leadership for your cloud infrastructure projects",
       },
       {
-        badge: "CREW",
+        badge: "IMPLEMENTATION",
         badgeColor: "green",
-        title: "Crew",
-        description: "People linked to your vessel with access to shared dashboards and planning",
+        title: "Implementation",
+        description: "Hands-on infrastructure-as-code development and deployment of your cloud platform",
       },
       {
-        badge: "FLEET",
+        badge: "ENABLEMENT",
         badgeColor: "purple",
-        title: "Fleet",
-        description: "Groups of vessels traveling together - temporary or ongoing maritime partnerships",
+        title: "Team Enablement",
+        description: "Knowledge transfer and training to ensure your team can own and extend the infrastructure",
       },
     ],
     cta: {
-      title: "🔮 Coming Soon",
-      description: "We're building the future of maritime community. Here's what's on the horizon:",
+      title: "Ready to Improve Your Cloud Infrastructure?",
+      description: "Let's discuss your project and how we can help build reliable, scalable systems:",
       buttons: [
         {
-          text: "Explore Marinas",
-          to: "/marina-explorer",
+          text: "Contact Us",
+          to: "/contact",
           variant: "solid",
           iconName: "FaMapMarkerAlt",
         },
         {
-          text: "Plan Routes",
-          to: "/routes",
+          text: "Learn More",
+          to: "/community",
           variant: "outline",
           iconName: "FaShip",
         },
@@ -234,24 +234,24 @@ export const siteConfig: SiteConfig = {
     },
   },
   howItWorks: {
-    title: "How It Works",
-    description: "Whether you're a boat owner or a digital nomad, our platform makes it easy to connect and start your liveaboard journey.",
+    title: "How We Work",
+    description: "Our engagement process is straightforward: we understand your needs, design the solution, implement it with your team, and ensure you can own it.",
     steps: [
       {
-        title: "Find Your Perfect Match",
-        description: "Browse through our curated selection of boats and slips, filtered by location, amenities, and your preferences.",
+        title: "Discovery & Planning",
+        description: "We start by understanding your current infrastructure, challenges, and goals. Together, we design an architecture that fits your needs and constraints.",
       },
       {
-        title: "Book Your Stay",
-        description: "Select your dates, review the terms, and secure your spot with our simple booking process.",
+        title: "Design & Architecture",
+        description: "Senior-level architectural decisions grounded in AWS best practices. We design for reliability, scalability, and maintainability from day one.",
       },
       {
-        title: "Connect with Hosts",
-        description: "Communicate directly with boat owners, ask questions, and get to know your future home.",
+        title: "Implementation",
+        description: "Hands-on infrastructure-as-code development. We build alongside your team, ensuring knowledge transfer and code quality throughout.",
       },
       {
-        title: "Start Your Journey",
-        description: "Arrive at your new floating home, settle in, and begin your life as a Naval Nomad.",
+        title: "Enablement & Handoff",
+        description: "Your team owns the infrastructure. We ensure you have the documentation, training, and confidence to extend and maintain it independently.",
       },
     ],
   },

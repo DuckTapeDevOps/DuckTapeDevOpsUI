@@ -1,17 +1,17 @@
 import { Container, VStack } from '@chakra-ui/react'
-import { FaUsers, FaMapMarkerAlt, FaComments, FaShip, FaHeart } from 'react-icons/fa'
+import { FaUsers, FaMapMarkerAlt, FaComments, FaShip, FaHeart, FaCloud, FaCode, FaCogs } from 'react-icons/fa'
 import { HeroSection, FeatureGrid, SectionWrapper, NetworkSection, CTASection } from '../components'
 import { siteConfig } from '../config/site'
 
 const Home = () => {
   // Map icons to feature titles (keeping icon mapping logic)
   const iconMap: Record<string, typeof FaMapMarkerAlt> = {
-    'Find Your Fleet': FaMapMarkerAlt,
-    'Marina Chat': FaComments,
-    'Maritime Story': FaShip,
-    'Connect': FaUsers,
-    'Share Location': FaMapMarkerAlt,
-    'Build Community': FaHeart,
+    'Cloud Architecture': FaCloud,
+    'Infrastructure as Code': FaCode,
+    'DevOps & Reliability': FaCogs,
+    'Technical Leadership': FaUsers,
+    'Team Enablement': FaHeart,
+    'Pragmatic Solutions': FaCogs,
   }
 
   const coreFeatures = siteConfig.home.coreFeatures.map((feature, index) => ({
@@ -52,15 +52,15 @@ const Home = () => {
           secondaryText={siteConfig.home.hero.secondaryText}
         />
 
-        <SectionWrapper title="🌊 Community-First Features">
+        <SectionWrapper title="Core Services">
           <FeatureGrid features={coreFeatures} variant="simple" />
         </SectionWrapper>
 
-        <SectionWrapper title="🚢 Maritime Network">
+        <SectionWrapper title="Our Approach">
           <FeatureGrid features={networkFeatures} variant="card" />
         </SectionWrapper>
 
-        <SectionWrapper title="Your Maritime Network" bg="accent">
+        <SectionWrapper title="Engagement Models" bg="accent">
           <NetworkSection levels={siteConfig.home.networkLevels} />
         </SectionWrapper>
 

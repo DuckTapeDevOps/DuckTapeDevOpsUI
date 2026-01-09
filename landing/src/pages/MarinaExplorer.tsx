@@ -1,28 +1,63 @@
-import { Box, Container, Heading, Text, VStack, Input, InputGroup, InputLeftElement, SimpleGrid, Button, useColorModeValue } from '@chakra-ui/react'
-import { SearchIcon } from '@chakra-ui/icons'
+import { Box, Container, Heading, Text, VStack, HStack, SimpleGrid, Button, Badge, useColorModeValue } from '@chakra-ui/react'
+import { Link as RouterLink } from 'react-router-dom'
+import { FaCloud, FaCode, FaChartLine, FaRocket } from 'react-icons/fa'
 
 const MarinaExplorer = () => {
-  const featuredMarinas = [
+  const cardBg = useColorModeValue('white', 'gray.700')
+  const borderColor = useColorModeValue('gray.200', 'gray.600')
+
+  const caseStudies = [
     {
-      name: "Miami Marina",
-      location: "Miami, FL",
-      description: "Prime location with excellent amenities and liveaboard community",
-      rating: 4.8,
-      price: "$$$"
+      title: "E-commerce Platform Migration",
+      industry: "Retail",
+      challenge: "Legacy infrastructure couldn't handle peak traffic during sales events",
+      solution: "Migrated to AWS ECS with auto-scaling, implemented CloudFront CDN, optimized RDS queries, and added Redis caching",
+      results: [
+        "Handled 10x traffic during Black Friday",
+        "50% reduction in infrastructure costs",
+        "99.9% uptime during peak periods"
+      ],
+      technologies: ["ECS", "CloudFront", "RDS", "Redis", "Terraform"],
+      icon: FaCloud
     },
     {
-      name: "Charleston Harbor Marina",
-      location: "Charleston, SC",
-      description: "Historic marina with modern facilities and strong liveaboard presence",
-      rating: 4.6,
-      price: "$$"
+      title: "Serverless SaaS Platform",
+      industry: "SaaS",
+      challenge: "High operational overhead and slow deployment cycles",
+      solution: "Built serverless architecture with Lambda, API Gateway, DynamoDB, and EventBridge for event-driven workflows",
+      results: [
+        "80% reduction in operational overhead",
+        "Deployment time reduced from days to minutes",
+        "Pay-per-use cost model scales automatically"
+      ],
+      technologies: ["Lambda", "API Gateway", "DynamoDB", "EventBridge", "SAM"],
+      icon: FaCode
     },
     {
-      name: "Norfolk Waterside Marina",
-      location: "Norfolk, VA",
-      description: "Urban marina with easy access to city amenities",
-      rating: 4.5,
-      price: "$$"
+      title: "Enterprise Cloud Migration",
+      industry: "Enterprise",
+      challenge: "On-premises systems needed cloud migration with zero downtime",
+      solution: "Designed Terraform-based infrastructure with blue-green deployment strategy and automated migration scripts",
+      results: [
+        "Zero-downtime migration completed in 6 months",
+        "40% cost reduction vs on-premises",
+        "Improved disaster recovery capabilities"
+      ],
+      technologies: ["ECS", "RDS", "VPC", "Terraform", "GitLab CI/CD"],
+      icon: FaRocket
+    },
+    {
+      title: "Observability & Monitoring Overhaul",
+      industry: "Technology",
+      challenge: "Lack of visibility into production systems causing slow incident response",
+      solution: "Implemented comprehensive observability stack with CloudWatch, X-Ray, and custom dashboards",
+      results: [
+        "Mean time to detection reduced by 90%",
+        "Proactive alerting prevents issues before users notice",
+        "Better cost visibility and optimization"
+      ],
+      technologies: ["CloudWatch", "X-Ray", "Grafana", "Terraform"],
+      icon: FaChartLine
     }
   ]
 
@@ -32,83 +67,107 @@ const MarinaExplorer = () => {
         {/* Header */}
         <Box textAlign="center">
           <Heading as="h1" size="2xl" mb={6} color={useColorModeValue('navy.600', 'white')}>
-            Marina Explorer
+            Case Studies
           </Heading>
           <Text fontSize="xl" maxW="2xl" mx="auto" mb={8} color={useColorModeValue('gray.600', 'gray.300')}>
-            Find liveaboard-friendly marinas along the East Coast
-          </Text>
-          
-          {/* Search Bar */}
-          <InputGroup maxW="2xl" mx="auto">
-            <InputLeftElement pointerEvents="none">
-              <SearchIcon color="gray.300" />
-            </InputLeftElement>
-            <Input
-              placeholder="Search by location, marina name, or amenities..."
-              size="lg"
-              borderRadius="full"
-            />
-          </InputGroup>
-        </Box>
-
-        {/* Map Placeholder */}
-        <Box
-          height="400px"
-          bg={useColorModeValue('gray.100', 'gray.700')}
-          borderRadius="lg"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Text fontSize="xl" color={useColorModeValue('gray.500', 'gray.300')}>
-            Interactive Map Coming Soon
+            Real-world cloud architecture and DevOps solutions
           </Text>
         </Box>
 
-        {/* Featured Marinas */}
-        <Box>
-          <Heading as="h2" size="xl" mb={6} color={useColorModeValue('navy.600', 'white')}>
-            Featured Marinas
-          </Heading>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
-            {featuredMarinas.map((marina) => (
-              <Box
-                key={marina.name}
-                p={6}
-                shadow="md"
-                borderWidth="1px"
-                borderRadius="lg"
-                bg={useColorModeValue('white', 'gray.700')}
-                borderColor={useColorModeValue('gray.200', 'gray.600')}
-                _hover={{ shadow: "lg" }}
-                transition="all 0.2s"
-              >
-                <VStack align="start" spacing={4}>
-                  <Heading as="h3" size="md" color={useColorModeValue('navy.600', 'white')}>
-                    {marina.name}
-                  </Heading>
-                  <Text color={useColorModeValue('gray.600', 'gray.300')}>{marina.location}</Text>
-                  <Text color={useColorModeValue('gray.700', 'gray.200')}>{marina.description}</Text>
-                  <Box display="flex" justifyContent="space-between" width="100%">
-                    <Text color={useColorModeValue('gray.700', 'gray.200')}>Rating: {marina.rating}/5</Text>
-                    <Text color={useColorModeValue('gray.700', 'gray.200')}>Price: {marina.price}</Text>
+        {/* Case Studies Grid */}
+        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8}>
+          {caseStudies.map((study, index) => (
+            <Box
+              key={index}
+              p={8}
+              bg={cardBg}
+              borderWidth="1px"
+              borderRadius="lg"
+              borderColor={borderColor}
+              _hover={{ shadow: "lg", transform: "translateY(-2px)" }}
+              transition="all 0.2s"
+            >
+              <VStack align="start" spacing={6}>
+                <Box display="flex" alignItems="center" gap={4} width="100%">
+                  <Box
+                    p={3}
+                    bg={useColorModeValue('blue.50', 'gray.600')}
+                    borderRadius="lg"
+                  >
+                    <study.icon size={24} color={useColorModeValue('blue.500', 'blue.300')} />
                   </Box>
-                  <Button colorScheme="blue" variant="outline" width="100%">
-                    View Details
-                  </Button>
-                </VStack>
-              </Box>
-            ))}
-          </SimpleGrid>
-        </Box>
+                  <Box flex={1}>
+                    <HStack spacing={2} mb={2}>
+                      <Badge colorScheme="blue" variant="subtle">
+                        {study.industry}
+                      </Badge>
+                    </HStack>
+                    <Heading as="h3" size="lg" color={useColorModeValue('navy.600', 'white')}>
+                      {study.title}
+                    </Heading>
+                  </Box>
+                </Box>
+
+                <Box>
+                  <Text fontWeight="semibold" color={useColorModeValue('gray.700', 'gray.200')} mb={2}>
+                    Challenge:
+                  </Text>
+                  <Text color={useColorModeValue('gray.600', 'gray.300')} mb={4}>
+                    {study.challenge}
+                  </Text>
+                  
+                  <Text fontWeight="semibold" color={useColorModeValue('gray.700', 'gray.200')} mb={2}>
+                    Solution:
+                  </Text>
+                  <Text color={useColorModeValue('gray.600', 'gray.300')} mb={4}>
+                    {study.solution}
+                  </Text>
+                  
+                  <Text fontWeight="semibold" color={useColorModeValue('gray.700', 'gray.200')} mb={2}>
+                    Results:
+                  </Text>
+                  <VStack align="start" spacing={2} mb={4}>
+                    {study.results.map((result, i) => (
+                      <Text key={i} color={useColorModeValue('gray.600', 'gray.300')} fontSize="sm">
+                        • {result}
+                      </Text>
+                    ))}
+                  </VStack>
+                  
+                  <Box>
+                    <Text fontWeight="semibold" color={useColorModeValue('gray.700', 'gray.200')} mb={2}>
+                      Technologies:
+                    </Text>
+                    <Box display="flex" flexWrap="wrap" gap={2}>
+                      {study.technologies.map((tech, i) => (
+                        <Badge key={i} colorScheme="gray" variant="outline">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </Box>
+                  </Box>
+                </Box>
+              </VStack>
+            </Box>
+          ))}
+        </SimpleGrid>
 
         {/* CTA Section */}
         <Box textAlign="center" py={10} bg={useColorModeValue('gray.50', 'gray.700')} borderRadius="lg">
           <VStack spacing={6}>
-            <Heading as="h2" size="xl" color={useColorModeValue('navy.600', 'white')}>Want to List Your Marina?</Heading>
-            <Text fontSize="lg" color={useColorModeValue('gray.600', 'gray.300')}>Add your marina to our directory and reach potential liveaboard residents</Text>
-            <Button colorScheme="blue" size="lg">
-              List Your Marina
+            <Heading as="h2" size="xl" color={useColorModeValue('navy.600', 'white')}>
+              Ready to Build Your Solution?
+            </Heading>
+            <Text fontSize="lg" color={useColorModeValue('gray.600', 'gray.300')}>
+              Let's discuss how we can help improve your cloud infrastructure
+            </Text>
+            <Button
+              as={RouterLink}
+              to="/contact"
+              colorScheme="blue"
+              size="lg"
+            >
+              Get in Touch
             </Button>
           </VStack>
         </Box>
@@ -117,4 +176,4 @@ const MarinaExplorer = () => {
   )
 }
 
-export default MarinaExplorer 
+export default MarinaExplorer
