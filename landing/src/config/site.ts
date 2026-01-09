@@ -27,10 +27,10 @@ export interface SiteConfig {
   }
   navigation: NavigationItem[]
   contact: {
-    waitlistUrl: string
-    waitlistButtonText: string
-    waitlistHeading: string
-    waitlistDescription: string
+    heading: string
+    description: string
+    linkedinUrl: string
+    email: string
   }
   hero: {
     title: string
@@ -133,10 +133,10 @@ export const siteConfig: SiteConfig = {
     },
   ],
   contact: {
-    waitlistUrl: "https://docs.google.com/forms/d/e/1FAIpQLSe_sD8IZFdH84GxvExbsrJuk78ZrDCIOr5RZMyNHVSPuh-5AQ/viewform?usp=header",
-    waitlistButtonText: "Get in Touch",
-    waitlistHeading: "Let's Talk",
-    waitlistDescription: "Ready to improve your cloud infrastructure? Get in touch to discuss your project and how we can help.",
+    heading: "Get in Touch",
+    description: "Ready to improve your cloud infrastructure? Connect with us on LinkedIn or send us an email to discuss your project.",
+    linkedinUrl: "https://linkedin.com/company/ducktapedevops/",
+    email: "nic@ducktapedevops.com",
   },
   hero: {
     title: "Cloud Architecture That Actually Works",

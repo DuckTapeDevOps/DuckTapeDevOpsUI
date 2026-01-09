@@ -36,10 +36,10 @@ export const siteConfigExample: SiteConfig = {
     },
   ],
   contact: {
-    waitlistUrl: "https://your-waitlist-form-url.com",
-    waitlistButtonText: "Join Waitlist",
-    waitlistHeading: "Join the Waitlist",
-    waitlistDescription: "Sign up to get early access and updates.",
+    heading: "Get in Touch",
+    description: "Connect with us to discuss your project.",
+    linkedinUrl: "https://linkedin.com/company/your-company/",
+    email: "contact@example.com",
   },
   hero: {
     title: "Your Hero Title",
