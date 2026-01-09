@@ -34,6 +34,6 @@ variable "cloudfront_max_ttl" {
 }
 
 variable "resource_name_prefix" {
-  description = "Prefix for AWS resource names (e.g., 'naval-nomad', 'ducktape-devops'). Used for Cognito, Secrets Manager, and IAM resources."
+  description = "Prefix for AWS resource names (e.g., 'naval-nomad', 'ducktape-devops'). Used for IAM resources."
   type        = string
 } 

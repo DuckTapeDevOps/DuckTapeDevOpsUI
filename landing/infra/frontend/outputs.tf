@@ -13,10 +13,10 @@
 #   value       = data.aws_acm_certificate.website.arn
 # }
 
-# output "cloudfront_distribution_id" {
-#   description = "The ID of the CloudFront distribution"
-#   value       = aws_cloudfront_distribution.website.id
-# }
+output "cloudfront_distribution_id" {
+  description = "The ID of the CloudFront distribution"
+  value       = aws_cloudfront_distribution.website.id
+}
 
 # output "s3_bucket_arn" {
 #   description = "The ARN of the S3 bucket"

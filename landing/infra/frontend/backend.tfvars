@@ -1,5 +1,5 @@
-bucket         = "naval-nomad-terraform-state"
+bucket         = "dtdo-terraform-state"
 key            = "frontend/terraform.tfstate"
 region         = "us-east-1"
-dynamodb_table = "naval-nomad-terraform-locks"
+dynamodb_table = "dtdo-terraform-locks"
 encrypt        = true 

@@ -9,8 +9,9 @@ variable "s3_bucket_name" {
 }
 
 variable "cloudfront_distribution_id" {
-  description = "ID of the CloudFront distribution"
+  description = "ID of the CloudFront distribution. If empty, IAM policy will use wildcard permission for all distributions."
   type        = string
+  default     = ""
 }
 
 variable "aws_region" {

@@ -9,7 +9,7 @@ This document provides authoritative guidance on the current state of the Websit
 /
 ├── CONTRIBUTING.md          # Contribution guidelines and IP notice
 ├── LICENSE                  # MIT License
-├── README.md                # Project overview and Naval Nomad branding
+├── README.md                # Project overview and DuckTapeDevOps branding
 └── docs/
     └── PROJECT_CONTEXT.md   # This file
 ```
@@ -83,7 +83,7 @@ landing/
         ├── backend.tfvars
         ├── providers.tf     # AWS provider config
         ├── variables.tf     # Input variables
-        ├── terraform.tfvars # Variable values (navalnomad.com)
+        ├── terraform.tfvars # Variable values (ducktapedevops.com)
         ├── s3.tf            # S3 bucket configuration
         ├── cloudfront.tf    # CloudFront distribution
         ├── route53.tf       # DNS configuration
@@ -152,7 +152,7 @@ The site is deployed using **Terraform/OpenTofu** Infrastructure as Code with th
 
 **2. Frontend Infrastructure** (`landing/infra/frontend/`)
 - **S3 Bucket** (`s3.tf`):
-  - Bucket name: `navalnomad.com` (from `domain_name` variable)
+  - Bucket name: `ducktapedevops.com` (from `domain_name` variable)
   - Private bucket (all public access blocked)
   - Website configuration with `index.html` as index and error document (for SPA routing)
   - Bucket policy allows CloudFront Origin Access Identity (OAI) to read objects
@@ -162,7 +162,7 @@ The site is deployed using **Terraform/OpenTofu** Infrastructure as Code with th
   - Default root object: `index.html`
   - Custom error responses: 403/404 → 200 with `/index.html` (SPA routing support)
   - SSL/TLS: ACM certificate (must be in `us-east-1`)
-  - Aliases: `navalnomad.com` and `www.navalnomad.com`
+  - Aliases: `ducktapedevops.com` and `www.ducktapedevops.com`
   - Caching: TTLs configurable (default: min 0, default 3600, max 86400)
   - Price class: `PriceClass_100` (North America and Europe only)
   
@@ -186,14 +186,14 @@ The site is deployed using **Terraform/OpenTofu** Infrastructure as Code with th
 - **Permissions**: S3 upload + CloudFront invalidation
 
 ### Environment Configuration
-- **Domain**: `navalnomad.com` (hardcoded in `terraform.tfvars`)
+- **Domain**: `ducktapedevops.com` (configured in `terraform.tfvars`)
 - **Environment**: `prod` (default)
 - **Region**: `us-east-1` (required for CloudFront ACM certificates)
 - **CloudFront Price Class**: `PriceClass_100` (configurable)
 
 ## Brand-Specific Content
 
-The following elements are specific to the Naval Nomad brand and should be customized for other sites:
+The following elements are specific to the DuckTapeDevOps brand:
 
 ### Theme and Styling (`src/theme.ts`)
 - **Brand Colors**:
@@ -205,36 +205,36 @@ The following elements are specific to the Naval Nomad brand and should be custo
 - **Color Mode**: Light mode default with system preference detection
 
 ### Brand Name and Text
-- **Brand Name**: "Naval Nomad" (appears in Navbar, page titles, content)
-- **Tagline**: "Turning Marinas into Villages"
-- **Domain**: `navalnomad.com` (in infrastructure, navbar links, etc.)
+- **Brand Name**: "DuckTapeDevOps" (appears in Navbar, page titles, content)
+- **Tagline**: "Practical Cloud Architecture & DevOps"
+- **Domain**: `ducktapedevops.com` (in infrastructure, navbar links, etc.)
 
 ### Page Content
 - **Home Page** (`src/pages/Home.tsx`):
-  - Hero title: "Naval Nomad Community"
-  - Feature descriptions specific to maritime community
-  - Network levels: Connections, Crew, Fleet (maritime-specific)
+  - Hero title: "DuckTapeDevOps"
+  - Feature descriptions focused on cloud architecture and DevOps services
+  - Engagement models: Consulting, Implementation, Team Enablement
   
 - **Navbar** (`src/components/Navbar.tsx`):
-  - Brand name "Naval Nomad" in logo area
-  - Navigation links: Community, Marina Explorer, Route Planner, Contact
+  - Brand name "DuckTapeDevOps" in logo area
+  - Navigation links: Services, Case Studies, Process, Contact
   
 - **Contact Page** (`src/components/Contact/index.tsx`):
-  - Links to Naval Nomad-specific Google Form waitlist
+  - Contact form for consultancy inquiries
   - Brand-specific messaging
 
-- **Marina Explorer** (`src/pages/MarinaExplorer.tsx`):
-  - Maritime-specific content and featured marinas
-  - Liveaboard-focused messaging
+- **Case Studies** (`src/pages/MarinaExplorer.tsx`):
+  - Cloud architecture and DevOps case studies
+  - Client success stories and results
 
 - **HTML Title** (`index.html`):
-  - "Naval Nomad - Live Your Dream Life at Sea"
+  - "DuckTapeDevOps - Practical Cloud Architecture & DevOps"
 
 ### Static Assets
 - `public/hero-image.svg`: Brand-specific hero image
 
 ### Infrastructure Variables
-- `landing/infra/frontend/terraform.tfvars`: Contains `domain_name = "navalnomad.com"`
+- `landing/infra/frontend/terraform.tfvars`: Contains `domain_name = "ducktapedevops.com"`
 - `landing/infra/bootstrap/variables.tf`: Contains `github_repo` and `s3_bucket_name` defaults
 
 ## Reusable vs Site-Specific Components
@@ -251,15 +251,15 @@ These components accept props and contain no brand-specific content:
 ### Site-Specific Components (Brand Content)
 These components contain hardcoded brand-specific content:
 
-- **`Navbar.tsx`**: Contains "Naval Nomad" brand name and navigation structure
-- **`Contact/index.tsx`**: Links to Naval Nomad waitlist form
-- **`Hero/index.tsx`**: Alternative hero with brand-specific text ("Live Your Dream Life at Sea")
+- **`Navbar.tsx`**: Contains "DuckTapeDevOps" brand name and navigation structure
+- **`Contact/index.tsx`**: Contact form for consultancy inquiries
+- **`Hero/index.tsx`**: Alternative hero with brand-specific text ("Cloud Architecture That Actually Works")
 - **All Page Components** (`src/pages/*`): Contain brand-specific content, copy, and data
 
 ### Hybrid Components
-- **`NauticalMap.tsx`**: Map component (reusable structure, but may contain maritime-specific features)
-- **`RoutePlanner.tsx`**: Route planning component (structure reusable, content may be domain-specific)
-- **`Onboarding.tsx`**: Onboarding flow (structure reusable, content brand-specific)
+- **`NauticalMap.tsx`**: Map component (reusable structure, currently unused)
+- **`RoutePlanner.tsx`**: Route planning component (structure reusable, currently unused)
+- **`Onboarding.tsx`**: Onboarding flow (structure reusable, currently unused)
 
 ### Theme Configuration
 - **`theme.ts`**: Brand-specific colors and fonts, but structure is reusable (can be swapped with different color palettes and fonts)
@@ -270,9 +270,9 @@ These components contain hardcoded brand-specific content:
 - **Router**: React Router DOM with BrowserRouter
 - **Routes** (defined in `App.tsx`):
   - `/` → Home page
-  - `/marina-explorer` → Marina Explorer page
-  - `/routes` → Route Explorer page
-  - `/community` → Community page
+- `/marina-explorer` → Case Studies page
+- `/routes` → Process page
+- `/community` → Services page
   - `/map` → Map Page
   - `/contact` → Contact/Waitlist page
 
@@ -310,7 +310,7 @@ These components contain hardcoded brand-specific content:
 3. **GitHub Actions**: Workflow files are not present in the repository, but infrastructure supports OIDC-based deployment.
 4. **Outputs**: Infrastructure outputs are commented out in `landing/infra/frontend/outputs.tf`.
 5. **Component Duplication**: Both `HeroSection.tsx` and `Hero/index.tsx` exist - may be legacy or alternative implementations.
-6. **Map Components**: Multiple map-related components exist (`NauticalMap.tsx`, `RoutePlanner.tsx`, `MapPage.tsx`) - structure suggests maritime navigation features.
+6. **Map Components**: Multiple map-related components exist (`NauticalMap.tsx`, `RoutePlanner.tsx`, `MapPage.tsx`) - currently unused in the DuckTapeDevOps site.
 
 ## Dependencies Summary
 
