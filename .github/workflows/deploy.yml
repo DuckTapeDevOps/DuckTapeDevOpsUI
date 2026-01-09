@@ -7,8 +7,8 @@ on:
 
 env:
   AWS_ROLE_ARN: arn:aws:iam::279843290636:role/github-actions-deployer
-  S3_BUCKET_NAME: navalnomad.com
-  CLOUDFRONT_DISTRIBUTION_ID: E35VTEQJ8DGT8T
+  S3_BUCKET_NAME: ducktapedevops.com
+  CLOUDFRONT_DISTRIBUTION_ID: E3B23J3DUOY1XM
 
 permissions:
   contents: read

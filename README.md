@@ -1,41 +1,35 @@
-# Naval Nomad Community
+# DuckTapeDevOps
 
-**Turning Marinas into Villages**
+**Practical Cloud Architecture & DevOps**
 
-A community-first platform designed to transform marinas from transient stops into vibrant maritime villages. By connecting boaters and creating digital infrastructure for real-world interactions, Naval Nomad enhances the marina experience while building lasting relationships among nautical enthusiasts.
+A hands-on cloud architecture and DevOps consultancy focused on AWS-first platform design, pragmatic infrastructure-as-code (Terraform/OpenTofu), and enabling teams with senior-level technical leadership.
 
-## Core Vision
+## Core Focus
 
-Naval Nomad focuses on community building first, with features that make boaters' lives easier added progressively based on user needs and feedback.
+DuckTapeDevOps specializes in:
 
-## MVP Features
+- **AWS-first platform design** - Cloud architecture optimized for AWS services
+- **Pragmatic infrastructure-as-code** - Terraform and OpenTofu for reliable, maintainable infrastructure
+- **Container orchestration** - ECS/EKS deployment and management
+- **Serverless architectures** - Event-driven, cost-effective solutions
+- **CI/CD pipelines** - Automated deployment and testing workflows
+- **Reliability & observability** - Monitoring, logging, and incident response
+- **Cost-aware scaling** - Infrastructure that grows efficiently with your needs
 
-### Community Building
-- **Connect Network**: Follow and connect with fellow boaters (like LinkedIn for the maritime community)
-- **Location Sharing**: See which marina your connections are currently docked at (with privacy controls)
-- **Marina Chat**: Location-specific conversations and community discussions
-- **User Profiles**: Vessel information, travel history, and personal maritime story
+## Philosophy
 
-### Privacy-First Location Sharing
-- **Public**: Region or town only
-- **Marina-level**: Exact marina visible to connections and fleetmates
-- **Precise berth**: Crew only, or explicit one-off sharing
+**Practical Engineering**: Real-world solutions over hype. We fix systems with duct tape when necessary—but we do it cleanly.
 
-### Community Structure
-- **Crew**: People linked to a specific vessel with access to vessel dashboards
-- **Fleet**: Groups of vessels that travel together (temporary or ongoing)
-- **Connections**: Your broader maritime network
+**Senior-Level Leadership**: Architectural decisions grounded in experience, not theory.
 
-## Coming Soon Features
-- **Event Management**: Marina events calendar and community meetups
-- **Journey Blogs**: Document and share maritime adventures
-- **Route Planning**: Advanced navigation and trip planning tools
-- **Marina Integration**: Tools for marina staff to enhance customer service
+**Team Enablement**: We build systems and knowledge, not dependency. Your team learns and grows.
+
+**Pragmatic Approach**: Technical, confident, and opinionated—but always grounded in what actually works.
 
 ## Project Structure
 
-- `/landing` - React community platform built with Vite
-- `/landing/infrastructure` - OpenTofu/Terraform IaC for AWS (frontend hosting, CI/CD)
+- `/landing` - React website built with Vite
+- `/landing/infra` - OpenTofu/Terraform IaC for AWS (frontend hosting, CI/CD)
 
 ## Development
 
@@ -51,8 +45,6 @@ npm run dev
 ```
 
 ## Deployment
-
-### Production (navalnomad.com)
 
 The site is automatically deployed when changes are pushed to the main branch via GitHub Actions.
 
@@ -73,18 +65,6 @@ The project uses OpenTofu/Terraform to manage AWS:
 - S3 backend state with DynamoDB table for state locking
 - GitHub Actions (OIDC role) for CI/CD deployments
 
-## Development Philosophy
-
-**Community First**: Every feature decision prioritizes building and strengthening the maritime community.
-
-**Progressive Enhancement**: Start with core social features, then add complexity based on user feedback.
-
-**Privacy by Design**: Location and personal information sharing is always opt-in with granular controls.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-### Intellectual Property Notice
-
-While the code is open source under the MIT License, the Naval Nomad brand, business concept, and related assets remain proprietary. See [CONTRIBUTING.md](CONTRIBUTING.md) for more details on intellectual property rights and contribution guidelines.

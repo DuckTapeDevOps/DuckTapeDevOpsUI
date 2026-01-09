@@ -26,6 +26,5 @@ cloudfront_default_ttl = 3600
 cloudfront_max_ttl = 86400
 
 # Required: Prefix for AWS resource names (e.g., 'ducktape-devops')
-# Used for Cognito, Secrets Manager, and IAM resource naming
+# Used for IAM resource naming
 resource_name_prefix = "ducktape-devops"
-

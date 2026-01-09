@@ -1,8 +1,6 @@
-# GitHub OIDC Provider
-resource "aws_iam_openid_connect_provider" "github" {
-  url             = "https://token.actions.githubusercontent.com"
-  client_id_list  = ["sts.amazonaws.com"]
-  thumbprint_list = ["74F3A68F16524F15424927704C9506F55A9316BD"]
+# GitHub OIDC Provider (use existing if it already exists)
+data "aws_iam_openid_connect_provider" "github" {
+  url = "https://token.actions.githubusercontent.com"
 }
 
 # IAM Role for GitHub Actions
@@ -16,7 +14,7 @@ resource "aws_iam_role" "github_actions" {
         Action = "sts:AssumeRoleWithWebIdentity"
         Effect = "Allow"
         Principal = {
-          Federated = aws_iam_openid_connect_provider.github.arn
+          Federated = data.aws_iam_openid_connect_provider.github.arn
         }
         Condition = {
           StringLike = {
@@ -55,7 +53,7 @@ resource "aws_iam_role_policy" "github_actions" {
           "cloudfront:CreateInvalidation"
         ]
         Resource = [
-          "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${var.cloudfront_distribution_id}"
+          var.cloudfront_distribution_id != "" ? "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${var.cloudfront_distribution_id}" : "*"
         ]
       }
     ]
