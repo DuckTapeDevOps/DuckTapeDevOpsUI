@@ -1,11 +1,8 @@
-import { Box, Container, Heading, Text, Stack, Button, useColorModeValue } from '@chakra-ui/react'
+import { Box, Container, Heading, Text, Stack, Button, HStack, Icon, Link, useColorModeValue } from '@chakra-ui/react'
+import { FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import { siteConfig } from '../../config/site'
 
 const Contact = () => {
-  const handleJoinWaitlist = () => {
-    window.open(siteConfig.contact.waitlistUrl, '_blank')
-  }
-
   return (
     <Box py={20} bg={useColorModeValue('gray.50', 'gray.700')}>
       <Container maxW="container.xl">
@@ -17,22 +14,43 @@ const Contact = () => {
               fontFamily="heading"
               color={useColorModeValue('navy.500', 'white')}
             >
-              {siteConfig.contact.waitlistHeading}
+              {siteConfig.contact.heading}
             </Heading>
             <Text fontSize="lg" color={useColorModeValue('gray.600', 'gray.300')} maxW="2xl" mx="auto">
-              {siteConfig.contact.waitlistDescription}
+              {siteConfig.contact.description}
             </Text>
           </Stack>
 
-          <Box>
+          <HStack spacing={6} justify="center" flexWrap="wrap">
             <Button
-              onClick={handleJoinWaitlist}
+              as="a"
+              href={siteConfig.contact.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               colorScheme="blue"
               size="lg"
+              leftIcon={<Icon as={FaLinkedin} />}
               px={8}
             >
-              {siteConfig.contact.waitlistButtonText}
+              Connect on LinkedIn
             </Button>
+            <Button
+              as="a"
+              href={`mailto:${siteConfig.contact.email}`}
+              colorScheme="blue"
+              variant="outline"
+              size="lg"
+              leftIcon={<Icon as={FaEnvelope} />}
+              px={8}
+            >
+              Email Us
+            </Button>
+          </HStack>
+
+          <Box mt={4}>
+            <Text fontSize="sm" color={useColorModeValue('gray.500', 'gray.400')}>
+              Email: <Link href={`mailto:${siteConfig.contact.email}`} color="blue.500">{siteConfig.contact.email}</Link>
+            </Text>
           </Box>
         </Stack>
       </Container>
