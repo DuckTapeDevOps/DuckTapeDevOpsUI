@@ -54,7 +54,7 @@ export const siteConfigExample: SiteConfig = {
       to: "/about",
     },
     image: {
-      src: "/brand/hero-image.svg",
+      src: "/brand/hero-image.jpeg",
       alt: "Your hero image description",
     },
   },
