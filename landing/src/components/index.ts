@@ -8,4 +8,3 @@ export { NetworkSection } from './NetworkSection'
 // Existing Components
 export { Navbar } from './Navbar'
 export { default as Contact } from './Contact'
-export { NauticalMap } from './NauticalMap'

@@ -1,4 +1,4 @@
-import { Container, VStack } from '@chakra-ui/react'
+import { Container, VStack, Box, Image } from '@chakra-ui/react'
 import { FaUsers, FaMapMarkerAlt, FaComments, FaShip, FaHeart, FaCloud, FaCode, FaCogs } from 'react-icons/fa'
 import { HeroSection, FeatureGrid, SectionWrapper, NetworkSection, CTASection } from '../components'
 import { siteConfig } from '../config/site'
@@ -51,6 +51,19 @@ const Home = () => {
           }}
           secondaryText={siteConfig.home.hero.secondaryText}
         />
+
+        {siteConfig.hero.image && (
+          <Box w="100%">
+            <Image
+              src={siteConfig.hero.image.src}
+              alt={siteConfig.hero.image.alt}
+              w="100%"
+              h="auto"
+              objectFit="contain"
+              borderRadius="xl"
+            />
+          </Box>
+        )}
 
         <SectionWrapper title="Core Services">
           <FeatureGrid features={coreFeatures} variant="simple" />

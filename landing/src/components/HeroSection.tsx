@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack, Button, useColorModeValue } from '@chakra-ui/react'
+import { Box, Heading, Text, VStack, Button } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
 import { type ReactNode } from 'react'
 
@@ -22,7 +22,7 @@ export const HeroSection = ({
   secondaryText 
 }: HeroSectionProps) => {
   return (
-    <Box textAlign="center" py={20}>
+    <Box textAlign="center" pt={8} pb={0}>
       <Heading as="h1" size="3xl" mb={4} color="gray.100">
         {title}
       </Heading>
@@ -46,7 +46,7 @@ export const HeroSection = ({
           {primaryButton.text}
         </Button>
         {secondaryText && (
-          <Text fontSize="sm" color="gray.400">
+          <Text fontSize="sm" color="gray.400" mb={0}>
             {secondaryText}
           </Text>
         )}

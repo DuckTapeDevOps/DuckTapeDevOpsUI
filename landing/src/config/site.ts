@@ -20,6 +20,11 @@ export interface SiteConfig {
     name: string
     tagline: string
     description: string
+    logo?: {
+      src: string
+      alt: string
+      height?: string | number
+    }
   }
   metadata: {
     title: string
@@ -100,6 +105,11 @@ export const siteConfig: SiteConfig = {
     name: "DuckTapeDevOps",
     tagline: "To The Ducking Moon!",
     description: "Veteran intelligence professional turned cloud architect. We plan like intel, execute like operators, and leave your team owning the product and capable of both strategic and tactical execution for the next project.",
+    logo: {
+      src: "/brand/logo.png",
+      alt: "DuckTapeDevOps Logo",
+      height: 40,
+    },
   },
   metadata: {
     title: "DuckTapeDevOps - To The Ducking Moon!",
@@ -151,7 +161,7 @@ export const siteConfig: SiteConfig = {
       to: "/",
     },
     image: {
-      src: "/brand/hero-image.svg",
+      src: "/brand/hero-image.jpeg",
       alt: "DuckTapeDevOps - Cloud architecture and DevOps consultancy",
     },
   },
