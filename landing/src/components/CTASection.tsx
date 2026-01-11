@@ -20,15 +20,15 @@ interface CTASectionProps {
 }
 
 export const CTASection = ({ title, description, buttons, bg = 'accent' }: CTASectionProps) => {
-  const bgColor = bg === 'accent' ? useColorModeValue('gray.50', 'gray.700') : 'transparent'
+  const bgColor = bg === 'accent' ? 'space.800' : 'transparent' // Dark grey background
 
   return (
     <Box textAlign="center" py={10} bg={bgColor} borderRadius="lg">
       <VStack spacing={6}>
-        <Heading as="h2" size="xl" color={useColorModeValue('navy.600', 'white')}>
+        <Heading as="h2" size="xl" color="gray.100">
           {title}
         </Heading>
-        <Text fontSize="lg" color={useColorModeValue('gray.600', 'gray.300')} maxW="2xl">
+        <Text fontSize="lg" color="gray.300" maxW="2xl">
           {description}
         </Text>
         <HStack spacing={4} flexWrap="wrap" justify="center">
@@ -39,7 +39,7 @@ export const CTASection = ({ title, description, buttons, bg = 'accent' }: CTASe
               to={button.to}
               href={button.href}
               target={button.target}
-              colorScheme={button.colorScheme || 'blue'}
+              colorScheme={button.colorScheme || 'brand'}
               variant={button.variant || 'solid'}
               size="lg"
               leftIcon={button.icon as any}

@@ -98,21 +98,21 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   brand: {
     name: "DuckTapeDevOps",
-    tagline: "Practical Cloud Architecture & DevOps",
-    description: "A hands-on cloud architecture and DevOps consultancy focused on AWS-first platform design, pragmatic infrastructure-as-code, and enabling teams with senior-level technical leadership.",
+    tagline: "To The Ducking Moon!",
+    description: "Veteran intelligence professional turned cloud architect. We plan like intel, execute like operators, and leave your team owning the product and capable of both strategic and tactical execution for the next project.",
   },
   metadata: {
-    title: "DuckTapeDevOps - Practical Cloud Architecture & DevOps",
-    description: "AWS-first cloud architecture and DevOps consultancy. Terraform/OpenTofu, ECS/EKS, serverless, CI/CD, reliability, observability, and cost-aware scaling.",
+    title: "DuckTapeDevOps - To The Ducking Moon!",
+    description: "Veteran intelligence professional turned cloud architect. We plan like intel, execute like operators, and leave your team owning the product and capable of both strategic and tactical execution.",
   },
   navigation: [
     {
       label: "Services",
-      path: "/community",
+      path: "/services",
     },
     {
       label: "Case Studies",
-      path: "/marina-explorer",
+      path: "/case-studies",
       badge: {
         text: "BETA",
         colorScheme: "orange",
@@ -120,7 +120,7 @@ export const siteConfig: SiteConfig = {
     },
     {
       label: "Process",
-      path: "/routes",
+      path: "/process",
       disabled: true,
       badge: {
         text: "SOON",
@@ -134,14 +134,14 @@ export const siteConfig: SiteConfig = {
   ],
   contact: {
     heading: "Get in Touch",
-    description: "Ready to improve your cloud infrastructure? Connect with us on LinkedIn or send us an email to discuss your project.",
+    description: "Ready to build your next project? Connect with us on LinkedIn or send us an email to discuss how we can help your team gain strategic and tactical capability.",
     linkedinUrl: "https://linkedin.com/company/ducktapedevops/",
     email: "nic@ducktapedevops.com",
   },
   hero: {
-    title: "Cloud Architecture That Actually Works",
-    subtitle: "",
-    description: "Senior-level cloud architecture and DevOps expertise. AWS-first design, pragmatic infrastructure-as-code, and hands-on implementation that fixes real-world systems.",
+    title: "We Plan Like Intel, Execute Like Operators",
+    subtitle: "Veteran intelligence professional turned cloud architect",
+    description: "We plan like intel, execute like operators, and leave your team owning the product and capable of both strategic and tactical execution for the next project.",
     primaryButton: {
       text: "Contact Us",
       to: "/contact",
@@ -152,14 +152,14 @@ export const siteConfig: SiteConfig = {
     },
     image: {
       src: "/brand/hero-image.svg",
-      alt: "Cloud infrastructure and DevOps architecture",
+      alt: "DuckTapeDevOps - Cloud architecture and DevOps consultancy",
     },
   },
   home: {
     hero: {
       title: "DuckTapeDevOps",
-      subtitle: "Practical Cloud Architecture & DevOps",
-      description: "Senior-level cloud architecture and DevOps expertise. AWS-first design, pragmatic infrastructure-as-code, and hands-on implementation that fixes real-world systems and enables your team.",
+      subtitle: "To The Ducking Moon!",
+      description: "Veteran intelligence professional turned cloud architect. We plan like intel, execute like operators, and leave your team owning the product and capable of both strategic and tactical execution for the next project.",
       primaryButton: {
         text: "Get Started",
         to: "/contact",
@@ -168,55 +168,55 @@ export const siteConfig: SiteConfig = {
     },
     coreFeatures: [
       {
-        title: "Cloud Architecture",
-        description: "AWS-first platform design with ECS/EKS, serverless, and event-driven architectures. Infrastructure that scales with your needs.",
+        title: "Strategic Planning",
+        description: "We plan like intel: thorough analysis, clear objectives, and comprehensive understanding before execution. Every architecture decision is grounded in intelligence.",
       },
       {
-        title: "Infrastructure as Code",
-        description: "Pragmatic Terraform and OpenTofu implementations. Reliable, maintainable infrastructure that your team can own and extend.",
+        title: "Tactical Execution",
+        description: "We execute like operators: precise, efficient, and mission-focused. Your team gets production-ready infrastructure delivered with operational excellence.",
       },
       {
-        title: "DevOps & Reliability",
-        description: "CI/CD pipelines, observability, monitoring, and incident response. Systems that work when you need them.",
+        title: "Team Ownership",
+        description: "We leave your team owning the product and capable of both strategic and tactical execution for the next project. Full knowledge transfer and documentation.",
       },
     ],
     networkFeatures: [
       {
-        title: "Technical Leadership",
-        description: "Senior-level architectural decisions grounded in experience. We solve problems, not just implement solutions.",
+        title: "Strategic Capability",
+        description: "Your team gains strategic capability: the ability to plan, analyze, and make architectural decisions independently for future projects.",
       },
       {
-        title: "Team Enablement",
-        description: "We build systems and knowledge, not dependency. Your team learns, grows, and owns the infrastructure.",
+        title: "Tactical Capability",
+        description: "Your team gains tactical capability: the hands-on skills to implement, deploy, and maintain infrastructure with confidence and precision.",
       },
       {
-        title: "Pragmatic Solutions",
-        description: "Real-world engineering over hype. We fix systems cleanly, even when duct tape is required.",
+        title: "Product Ownership",
+        description: "Your team owns the product completely. We ensure you have the knowledge, documentation, and confidence to extend and maintain independently.",
       },
     ],
     networkLevels: [
       {
-        badge: "CONSULTING",
-        badgeColor: "blue",
-        title: "Consulting",
-        description: "Architectural guidance and technical leadership for your cloud infrastructure projects",
+        badge: "STRATEGIC",
+        badgeColor: "orange",
+        title: "Strategic Planning",
+        description: "We plan like intel: thorough analysis and clear objectives before execution",
       },
       {
-        badge: "IMPLEMENTATION",
-        badgeColor: "green",
-        title: "Implementation",
-        description: "Hands-on infrastructure-as-code development and deployment of your cloud platform",
+        badge: "TACTICAL",
+        badgeColor: "orange",
+        title: "Tactical Execution",
+        description: "We execute like operators: precise, efficient, and mission-focused delivery",
       },
       {
-        badge: "ENABLEMENT",
-        badgeColor: "purple",
-        title: "Team Enablement",
-        description: "Knowledge transfer and training to ensure your team can own and extend the infrastructure",
+        badge: "OWNERSHIP",
+        badgeColor: "gray",
+        title: "Team Ownership",
+        description: "Your team owns the product and is capable of both strategic and tactical execution for the next project",
       },
     ],
     cta: {
-      title: "Ready to Improve Your Cloud Infrastructure?",
-      description: "Let's discuss your project and how we can help build reliable, scalable systems:",
+      title: "Ready to Build Your Next Project?",
+      description: "Let's discuss how we can help your team gain strategic and tactical capability:",
       buttons: [
         {
           text: "Contact Us",
@@ -226,7 +226,7 @@ export const siteConfig: SiteConfig = {
         },
         {
           text: "Learn More",
-          to: "/community",
+          to: "/services",
           variant: "outline",
           iconName: "FaShip",
         },
@@ -235,23 +235,23 @@ export const siteConfig: SiteConfig = {
   },
   howItWorks: {
     title: "How We Work",
-    description: "Our engagement process is straightforward: we understand your needs, design the solution, implement it with your team, and ensure you can own it.",
+    description: "We plan like intel, execute like operators, and leave your team owning the product and capable of both strategic and tactical execution for the next project.",
     steps: [
       {
-        title: "Discovery & Planning",
-        description: "We start by understanding your current infrastructure, challenges, and goals. Together, we design an architecture that fits your needs and constraints.",
+        title: "Intelligence Planning",
+        description: "We plan like intel: thorough analysis of your current infrastructure, clear objectives, and comprehensive understanding of constraints before execution.",
       },
       {
-        title: "Design & Architecture",
-        description: "Senior-level architectural decisions grounded in AWS best practices. We design for reliability, scalability, and maintainability from day one.",
+        title: "Operator Execution",
+        description: "We execute like operators: precise, efficient, and mission-focused. Hands-on infrastructure-as-code development delivered with operational excellence.",
       },
       {
-        title: "Implementation",
-        description: "Hands-on infrastructure-as-code development. We build alongside your team, ensuring knowledge transfer and code quality throughout.",
+        title: "Knowledge Transfer",
+        description: "We ensure your team gains both strategic and tactical capability through hands-on training, documentation, and code reviews throughout the engagement.",
       },
       {
-        title: "Enablement & Handoff",
-        description: "Your team owns the infrastructure. We ensure you have the documentation, training, and confidence to extend and maintain it independently.",
+        title: "Product Ownership",
+        description: "Your team owns the product completely. We ensure you have the knowledge, documentation, and confidence to extend and maintain independently for the next project.",
       },
     ],
   },

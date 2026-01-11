@@ -1,26 +1,41 @@
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
 
 const config: ThemeConfig = {
-  initialColorMode: 'light',
-  useSystemColorMode: true,
+  initialColorMode: 'dark',
+  useSystemColorMode: false, // Force dark mode
 }
 
 const theme = extendTheme({
   config,
   colors: {
     brand: {
-      50: '#E6F0FF',
-      100: '#B3D1FF',
-      200: '#80B3FF',
-      300: '#4D94FF',
-      400: '#1A75FF',
-      500: '#0057E6',
-      600: '#0044B3',
-      700: '#003180',
-      800: '#001F4D',
-      900: '#000C1A',
+      // Matte yellow/orange primary brand color - complements dark grey
+      50: '#FFF4E6',
+      100: '#FFE6CC',
+      200: '#FFD9B3',
+      300: '#FFCC99',
+      400: '#FFBF80',
+      500: '#FFB84D', // Primary matte yellow/orange accent
+      600: '#E6A644',
+      700: '#CC943B',
+      800: '#B38232',
+      900: '#997029',
+    },
+    space: {
+      // Dark grey base - complements orange/yellow
+      50: '#2A2A2A',
+      100: '#3A3A3A',
+      200: '#4A4A4A',
+      300: '#5A5A5A',
+      400: '#6A6A6A',
+      500: '#7A7A7A', // Medium grey
+      600: '#4D4D4D',
+      700: '#3D3D3D',
+      800: '#2D2D2D', // Dark grey background
+      900: '#1D1D1D', // Very dark grey background
     },
     navy: {
+      // Keep navy for backward compatibility, but prefer space for dark colors
       50: '#E6E8EB',
       100: '#B3B9C2',
       200: '#808A99',
@@ -38,10 +53,10 @@ const theme = extendTheme({
     body: '"Inter", sans-serif',
   },
   styles: {
-    global: (props: { colorMode: string }) => ({
+    global: () => ({
       body: {
-        bg: props.colorMode === 'dark' ? 'gray.800' : 'white',
-        color: props.colorMode === 'dark' ? 'white' : 'navy.500',
+        bg: 'space.900', // Force dark grey background
+        color: 'gray.100', // Light text on dark background
       },
     }),
   },

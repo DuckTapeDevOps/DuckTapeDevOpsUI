@@ -4,7 +4,7 @@ import { siteConfig } from '../../config/site'
 
 const Contact = () => {
   return (
-    <Box py={20} bg={useColorModeValue('gray.50', 'gray.700')}>
+    <Box py={20} bg="space.800">
       <Container maxW="container.xl">
         <Stack gap={12} textAlign="center">
           <Stack gap={4}>
@@ -12,11 +12,11 @@ const Contact = () => {
               as="h2"
               size="xl"
               fontFamily="heading"
-              color={useColorModeValue('navy.500', 'white')}
+              color="gray.100"
             >
               {siteConfig.contact.heading}
             </Heading>
-            <Text fontSize="lg" color={useColorModeValue('gray.600', 'gray.300')} maxW="2xl" mx="auto">
+            <Text fontSize="lg" color="gray.300" maxW="2xl" mx="auto">
               {siteConfig.contact.description}
             </Text>
           </Stack>
@@ -27,7 +27,7 @@ const Contact = () => {
               href={siteConfig.contact.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              colorScheme="blue"
+              colorScheme="brand"
               size="lg"
               leftIcon={<Icon as={FaLinkedin} />}
               px={8}
@@ -37,7 +37,7 @@ const Contact = () => {
             <Button
               as="a"
               href={`mailto:${siteConfig.contact.email}`}
-              colorScheme="blue"
+              colorScheme="brand"
               variant="outline"
               size="lg"
               leftIcon={<Icon as={FaEnvelope} />}
@@ -48,8 +48,8 @@ const Contact = () => {
           </HStack>
 
           <Box mt={4}>
-            <Text fontSize="sm" color={useColorModeValue('gray.500', 'gray.400')}>
-              Email: <Link href={`mailto:${siteConfig.contact.email}`} color="blue.500">{siteConfig.contact.email}</Link>
+            <Text fontSize="sm" color="gray.400">
+              Email: <Link href={`mailto:${siteConfig.contact.email}`} color="brand.500">{siteConfig.contact.email}</Link>
             </Text>
           </Box>
         </Stack>
