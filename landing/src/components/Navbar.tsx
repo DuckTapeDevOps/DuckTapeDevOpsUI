@@ -11,15 +11,19 @@ export const Navbar = () => {
     <Box bg="space.900" px={6} shadow="sm" borderBottomWidth="1px" borderColor="space.700">
       <Flex h={20} alignItems="center" justifyContent="space-between">
         <RouterLink to="/" style={{ display: 'flex', alignItems: 'center', height: '100%', padding: '4px 0' }}>
-          {siteConfig.brand.logo && (
+          {siteConfig.brand.logo ? (
             <Image
               src={siteConfig.brand.logo.src}
               alt={siteConfig.brand.logo.alt}
-              maxH="64px"
-              h="64px"
+              maxH={siteConfig.brand.logo.height ? `${siteConfig.brand.logo.height}px` : "64px"}
+              h={siteConfig.brand.logo.height ? `${siteConfig.brand.logo.height}px` : "64px"}
               w="auto"
               objectFit="contain"
             />
+          ) : (
+            <Box fontWeight="bold" fontSize="xl" color="gray.100">
+              {siteConfig.brand.name}
+            </Box>
           )}
         </RouterLink>
 
