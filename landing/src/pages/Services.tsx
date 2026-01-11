@@ -9,10 +9,8 @@ import {
   SimpleGrid, 
   Icon,
   Badge,
-  useColorModeValue
 } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
-import { siteConfig } from '../config/site'
 import { 
   FaCloud, 
   FaCode, 
@@ -22,9 +20,9 @@ import {
   FaRocket
 } from 'react-icons/fa'
 
-const Community = () => {
-  const cardBg = useColorModeValue('white', 'gray.700')
-  const borderColor = useColorModeValue('gray.200', 'gray.600')
+const Services = () => {
+  const cardBg = 'space.800' // Dark grey cards
+  const borderColor = 'space.700' // Dark grey borders
 
   const services = [
     {
@@ -94,19 +92,19 @@ const Community = () => {
             <Heading 
               as="h1" 
               size="3xl" 
-              color={useColorModeValue('navy.600', 'white')}
+              color="gray.100"
               fontWeight="bold"
             >
-              Cloud Architecture & DevOps Services
+              We Plan Like Intel, Execute Like Operators
             </Heading>
             
-            <Text fontSize="xl" maxW="4xl" color={useColorModeValue('gray.600', 'gray.300')}>
-              Senior-level cloud architecture and DevOps expertise. We design, build, and enable teams 
-              to own reliable, scalable infrastructure.
+            <Text fontSize="xl" maxW="4xl" color="gray.300">
+              Founded by an Air Force Intelligence Veteran turned cloud architect. We plan like intel, execute like operators, 
+              and leave your team owning the product and capable of both strategic and tactical execution for the next project.
             </Text>
             
-            <Text fontSize="lg" maxW="3xl" color={useColorModeValue('gray.700', 'gray.200')} fontStyle="italic">
-              "Practical engineering over hype. We fix systems with duct tape when necessary—but we do it cleanly."
+            <Text fontSize="lg" maxW="3xl" color="gray.200" fontStyle="italic">
+              "Strategic planning meets tactical execution. Your team gains both capabilities and full product ownership."
             </Text>
           </VStack>
         </Container>
@@ -119,10 +117,10 @@ const Community = () => {
           <Box>
             <VStack spacing={8} align="stretch">
               <Box textAlign="center">
-                <Heading as="h2" size="2xl" mb={4} color={useColorModeValue('navy.600', 'white')}>
+                <Heading as="h2" size="2xl" mb={4} color="gray.100">
                   What We Do
                 </Heading>
-                <Text fontSize="lg" maxW="3xl" mx="auto" color={useColorModeValue('gray.600', 'gray.300')}>
+                <Text fontSize="lg" maxW="3xl" mx="auto" color="gray.300">
                   From initial architecture to ongoing optimization, we provide hands-on expertise 
                   across the full cloud infrastructure lifecycle.
                 </Text>
@@ -142,8 +140,8 @@ const Community = () => {
                   >
                     <VStack align="start" spacing={4}>
                       <Icon as={service.icon} color={service.color} boxSize={8} />
-                      <Heading as="h3" size="md" color={useColorModeValue('navy.600', 'white')}>{service.title}</Heading>
-                      <Text color={useColorModeValue('gray.600', 'gray.300')} fontSize="sm">{service.description}</Text>
+                      <Heading as="h3" size="md" color="gray.100">{service.title}</Heading>
+                      <Text color="gray.300" fontSize="sm">{service.description}</Text>
                     </VStack>
                   </Box>
                 ))}
@@ -155,11 +153,12 @@ const Community = () => {
           <Box>
             <VStack spacing={8} align="stretch">
               <Box textAlign="center">
-                <Heading as="h2" size="2xl" mb={4} color={useColorModeValue('navy.600', 'white')}>
+                <Heading as="h2" size="2xl" mb={4} color="gray.100">
                   Our Approach
                 </Heading>
-                <Text fontSize="lg" maxW="3xl" mx="auto" color={useColorModeValue('gray.600', 'gray.300')}>
-                  We build systems and knowledge, not dependency. Your team learns, grows, and owns the infrastructure.
+                <Text fontSize="lg" maxW="3xl" mx="auto" color="gray.300">
+                  We plan like intel, execute like operators, and leave your team owning the product. 
+                  Your team gains both strategic and tactical capability for the next project.
                 </Text>
               </Box>
 
@@ -168,11 +167,11 @@ const Community = () => {
                   <VStack align="start" spacing={4}>
                     <HStack>
                       <Icon as={FaRocket} color="blue.500" boxSize={6} />
-                      <Heading as="h3" size="lg" color={useColorModeValue('navy.600', 'white')}>Technical Leadership</Heading>
+                      <Heading as="h3" size="lg" color="gray.100">Technical Leadership</Heading>
                     </HStack>
-                    <Text color={useColorModeValue('gray.600', 'gray.300')}>
-                      Senior-level architectural decisions grounded in experience. We solve problems, 
-                      not just implement solutions. Every design choice is explained and justified.
+                    <Text color="gray.300">
+                      Veteran intelligence professional brings strategic thinking to cloud architecture. 
+                      We plan like intel: thorough analysis and clear objectives before execution.
                     </Text>
                   </VStack>
                 </Box>
@@ -181,11 +180,11 @@ const Community = () => {
                   <VStack align="start" spacing={4}>
                     <HStack>
                       <Icon as={FaCode} color="green.500" boxSize={6} />
-                      <Heading as="h3" size="lg" color={useColorModeValue('navy.600', 'white')}>Team Enablement</Heading>
+                      <Heading as="h3" size="lg" color="gray.100">Team Enablement</Heading>
                     </HStack>
-                    <Text color={useColorModeValue('gray.600', 'gray.300')}>
-                      We build alongside your team, ensuring knowledge transfer throughout. 
-                      You own the infrastructure, not us. Documentation, training, and code reviews are part of the process.
+                    <Text color="gray.300">
+                      We execute like operators: precise, efficient, and mission-focused. We build alongside your team, 
+                      ensuring you own the product. Your team gains tactical capability for independent execution.
                     </Text>
                   </VStack>
                 </Box>
@@ -197,10 +196,10 @@ const Community = () => {
           <Box>
             <VStack spacing={8} align="stretch">
               <Box textAlign="center">
-                <Heading as="h2" size="2xl" mb={4} color={useColorModeValue('navy.600', 'white')}>
+                <Heading as="h2" size="2xl" mb={4} color="gray.100">
                   Real Results
                 </Heading>
-                <Text fontSize="lg" maxW="3xl" mx="auto" color={useColorModeValue('gray.600', 'gray.300')}>
+                <Text fontSize="lg" maxW="3xl" mx="auto" color="gray.300">
                   Here's how we've helped teams build better infrastructure.
                 </Text>
               </Box>
@@ -221,14 +220,14 @@ const Community = () => {
                         {study.client}
                       </Badge>
                       {study.challenge && (
-                        <Text color={useColorModeValue('gray.700', 'gray.200')} fontSize="sm">
-                          <strong>Challenge:</strong> {study.challenge}
-                        </Text>
+                      <Text color="gray.200" fontSize="sm">
+                        <strong>Challenge:</strong> {study.challenge}
+                      </Text>
                       )}
-                      <Text color={useColorModeValue('gray.700', 'gray.200')} fontSize="sm">
+                      <Text color="gray.200" fontSize="sm">
                         <strong>Solution:</strong> {study.solution}
                       </Text>
-                      <Text color={useColorModeValue('gray.700', 'gray.200')} fontSize="sm" fontWeight="medium">
+                      <Text color="gray.200" fontSize="sm" fontWeight="medium">
                         <strong>Result:</strong> {study.result}
                       </Text>
                     </VStack>
@@ -242,44 +241,44 @@ const Community = () => {
           <Box bg={cardBg} p={10} borderRadius="lg" borderWidth="1px" borderColor={borderColor}>
             <VStack spacing={8} align="stretch">
               <Box textAlign="center">
-                <Heading as="h2" size="2xl" mb={4} color={useColorModeValue('navy.600', 'white')}>
+                <Heading as="h2" size="2xl" mb={4} color="gray.100">
                   Why This Approach Works
                 </Heading>
-                <Text fontSize="lg" maxW="3xl" mx="auto" color={useColorModeValue('gray.600', 'gray.300')}>
+                <Text fontSize="lg" maxW="3xl" mx="auto" color="gray.300">
                   We focus on practical solutions that your team can maintain and extend.
                 </Text>
               </Box>
 
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
                 <VStack align="start" spacing={4}>
-                  <Heading as="h3" size="lg" color={useColorModeValue('navy.600', 'white')}>What You Get</Heading>
+                  <Heading as="h3" size="lg" color="gray.100">What You Get</Heading>
                   <VStack align="start" spacing={3}>
                     <HStack>
-                      <Icon as={FaCloud} color="blue.500" />
-                      <Text color={useColorModeValue('gray.700', 'gray.200')}>Production-ready infrastructure</Text>
+                      <Icon as={FaCloud} color="brand.500" />
+                      <Text color="gray.200">Production-ready infrastructure</Text>
                     </HStack>
                     <HStack>
-                      <Icon as={FaCode} color="green.500" />
-                      <Text color={useColorModeValue('gray.700', 'gray.200')}>Maintainable Terraform code</Text>
+                      <Icon as={FaCode} color="brand.500" />
+                      <Text color="gray.200">Maintainable Terraform code</Text>
                     </HStack>
                     <HStack>
-                      <Icon as={FaCogs} color="orange.500" />
-                      <Text color={useColorModeValue('gray.700', 'gray.200')}>CI/CD pipelines and automation</Text>
+                      <Icon as={FaCogs} color="brand.500" />
+                      <Text color="gray.200">CI/CD pipelines and automation</Text>
                     </HStack>
                     <HStack>
-                      <Icon as={FaChartLine} color="purple.500" />
-                      <Text color={useColorModeValue('gray.700', 'gray.200')}>Monitoring and observability</Text>
+                      <Icon as={FaChartLine} color="brand.500" />
+                      <Text color="gray.200">Monitoring and observability</Text>
                     </HStack>
                   </VStack>
                 </VStack>
 
                 <VStack align="start" spacing={4}>
-                  <Heading as="h3" size="lg" color={useColorModeValue('navy.600', 'white')}>Why It Matters</Heading>
+                  <Heading as="h3" size="lg" color="gray.100">Why It Matters</Heading>
                   <VStack align="start" spacing={3}>
-                    <Text color={useColorModeValue('gray.700', 'gray.200')}>• <strong>Own your infrastructure:</strong> Your team understands and can modify every component.</Text>
-                    <Text color={useColorModeValue('gray.700', 'gray.200')}>• <strong>Reduce dependency:</strong> We enable you, not create a vendor lock-in.</Text>
-                    <Text color={useColorModeValue('gray.700', 'gray.200')}>• <strong>Pragmatic solutions:</strong> Real-world engineering over theoretical perfection.</Text>
-                    <Text color={useColorModeValue('gray.700', 'gray.200')}>• <strong>Cost-aware design:</strong> Infrastructure that scales efficiently without breaking the budget.</Text>
+                    <Text color="gray.200">• <strong>Own your infrastructure:</strong> Your team understands and can modify every component.</Text>
+                    <Text color="gray.200">• <strong>Reduce dependency:</strong> We enable you, not create a vendor lock-in.</Text>
+                    <Text color="gray.200">• <strong>Pragmatic solutions:</strong> Real-world engineering over theoretical perfection.</Text>
+                    <Text color="gray.200">• <strong>Cost-aware design:</strong> Infrastructure that scales efficiently without breaking the budget.</Text>
                   </VStack>
                 </VStack>
               </SimpleGrid>
@@ -289,17 +288,17 @@ const Community = () => {
           {/* CTA Section */}
           <Box textAlign="center" py={10} bg={cardBg} borderRadius="lg" borderWidth="1px" borderColor={borderColor}>
             <VStack spacing={6}>
-              <Heading as="h2" size="xl" color={useColorModeValue('navy.600', 'white')}>
-                Ready to Improve Your Cloud Infrastructure?
+              <Heading as="h2" size="xl" color="gray.100">
+                Ready to Build Your Next Project?
               </Heading>
-              <Text fontSize="lg" color={useColorModeValue('gray.600', 'gray.300')} maxW="2xl">
-                Let's discuss your project and how we can help build reliable, scalable systems.
+              <Text fontSize="lg" color="gray.300" maxW="2xl">
+                Let's discuss how we can help your team gain strategic and tactical capability.
               </Text>
               <HStack spacing={4}>
                 <Button
                   as={RouterLink}
                   to="/contact"
-                  colorScheme="blue"
+                  colorScheme="brand"
                   size="lg"
                   leftIcon={<FaRocket />}
                 >
@@ -308,7 +307,7 @@ const Community = () => {
                 <Button
                   as={RouterLink}
                   to="/"
-                  colorScheme="blue"
+                  colorScheme="brand"
                   variant="outline"
                   size="lg"
                 >
@@ -324,4 +323,4 @@ const Community = () => {
   )
 }
 
-export default Community
+export default Services

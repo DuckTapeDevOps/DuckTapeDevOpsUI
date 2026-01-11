@@ -19,14 +19,16 @@ export const NetworkSection = ({ levels }: NetworkSectionProps) => {
           key={index}
           spacing={3} 
           p={6} 
-          bg={useColorModeValue('white', 'gray.600')} 
+          bg="space.800" 
           borderRadius="lg" 
           shadow="sm"
+          borderWidth="1px"
+          borderColor="space.700"
         >
           <Badge colorScheme={level.badgeColor} fontSize="sm" px={3} py={1}>
             {level.badge}
           </Badge>
-          <Text fontSize="sm" textAlign="center" color={useColorModeValue('gray.600', 'gray.300')}>
+          <Text fontSize="sm" textAlign="center" color="gray.300">
             {level.description}
           </Text>
         </VStack>

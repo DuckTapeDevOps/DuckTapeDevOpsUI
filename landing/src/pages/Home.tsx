@@ -6,26 +6,26 @@ import { siteConfig } from '../config/site'
 const Home = () => {
   // Map icons to feature titles (keeping icon mapping logic)
   const iconMap: Record<string, typeof FaMapMarkerAlt> = {
-    'Cloud Architecture': FaCloud,
-    'Infrastructure as Code': FaCode,
-    'DevOps & Reliability': FaCogs,
-    'Technical Leadership': FaUsers,
-    'Team Enablement': FaHeart,
-    'Pragmatic Solutions': FaCogs,
+    'Strategic Planning': FaCloud,
+    'Tactical Execution': FaCode,
+    'Team Ownership': FaUsers,
+    'Strategic Capability': FaCloud,
+    'Tactical Capability': FaCode,
+    'Product Ownership': FaHeart,
   }
 
   const coreFeatures = siteConfig.home.coreFeatures.map((feature, index) => ({
     icon: iconMap[feature.title] || FaMapMarkerAlt,
     title: feature.title,
     description: feature.description,
-    color: index === 0 ? "blue.500" : index === 1 ? "blue.500" : "blue.500"
+    color: index === 0 ? "brand.500" : index === 1 ? "brand.600" : "brand.500"
   }))
 
   const networkFeatures = siteConfig.home.networkFeatures.map((feature, index) => ({
     icon: iconMap[feature.title] || FaUsers,
     title: feature.title,
     description: feature.description,
-    color: index === 0 ? "blue.500" : index === 1 ? "green.500" : "red.500"
+    color: index === 0 ? "space.700" : index === 1 ? "brand.500" : "space.600"
   }))
 
   // Map icon names to React components for CTA buttons

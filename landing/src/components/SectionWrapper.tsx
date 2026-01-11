@@ -19,7 +19,7 @@ export const SectionWrapper = ({
   const getBgColor = () => {
     switch (bg) {
       case 'accent':
-        return useColorModeValue('gray.50', 'gray.700')
+        return 'space.800' // Dark grey background
       case 'transparent':
         return 'transparent'
       default:
@@ -31,7 +31,7 @@ export const SectionWrapper = ({
     <Box bg={getBgColor()} p={bg === 'accent' ? py : 0} borderRadius={bg === 'accent' ? 'xl' : 'none'}>
       <VStack spacing={spacing} align="stretch">
         {title && (
-          <Heading as="h2" size="xl" textAlign="center" color={useColorModeValue('navy.600', 'white')}>
+          <Heading as="h2" size="xl" textAlign="center" color="gray.100">
             {title}
           </Heading>
         )}

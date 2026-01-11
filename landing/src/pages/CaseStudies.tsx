@@ -1,10 +1,10 @@
-import { Box, Container, Heading, Text, VStack, HStack, SimpleGrid, Button, Badge, useColorModeValue } from '@chakra-ui/react'
+import { Box, Container, Heading, Text, VStack, HStack, SimpleGrid, Button, Badge } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
 import { FaCloud, FaCode, FaChartLine, FaRocket } from 'react-icons/fa'
 
-const MarinaExplorer = () => {
-  const cardBg = useColorModeValue('white', 'gray.700')
-  const borderColor = useColorModeValue('gray.200', 'gray.600')
+const CaseStudies = () => {
+  const cardBg = 'space.800' // Dark grey cards
+  const borderColor = 'space.700' // Dark grey borders
 
   const caseStudies = [
     {
@@ -66,10 +66,10 @@ const MarinaExplorer = () => {
       <VStack spacing={12} align="stretch">
         {/* Header */}
         <Box textAlign="center">
-          <Heading as="h1" size="2xl" mb={6} color={useColorModeValue('navy.600', 'white')}>
+          <Heading as="h1" size="2xl" mb={6} color="gray.100">
             Case Studies
           </Heading>
-          <Text fontSize="xl" maxW="2xl" mx="auto" mb={8} color={useColorModeValue('gray.600', 'gray.300')}>
+          <Text fontSize="xl" maxW="2xl" mx="auto" mb={8} color="gray.300">
             Real-world cloud architecture and DevOps solutions
           </Text>
         </Box>
@@ -91,10 +91,10 @@ const MarinaExplorer = () => {
                 <Box display="flex" alignItems="center" gap={4} width="100%">
                   <Box
                     p={3}
-                    bg={useColorModeValue('blue.50', 'gray.600')}
+                    bg="space.700"
                     borderRadius="lg"
                   >
-                    <study.icon size={24} color={useColorModeValue('blue.500', 'blue.300')} />
+                    <study.icon size={24} color="brand.500" />
                   </Box>
                   <Box flex={1}>
                     <HStack spacing={2} mb={2}>
@@ -102,40 +102,40 @@ const MarinaExplorer = () => {
                         {study.industry}
                       </Badge>
                     </HStack>
-                    <Heading as="h3" size="lg" color={useColorModeValue('navy.600', 'white')}>
+                    <Heading as="h3" size="lg" color="gray.100">
                       {study.title}
                     </Heading>
                   </Box>
                 </Box>
 
                 <Box>
-                  <Text fontWeight="semibold" color={useColorModeValue('gray.700', 'gray.200')} mb={2}>
+                  <Text fontWeight="semibold" color="gray.200" mb={2}>
                     Challenge:
                   </Text>
-                  <Text color={useColorModeValue('gray.600', 'gray.300')} mb={4}>
+                  <Text color="gray.300" mb={4}>
                     {study.challenge}
                   </Text>
                   
-                  <Text fontWeight="semibold" color={useColorModeValue('gray.700', 'gray.200')} mb={2}>
+                  <Text fontWeight="semibold" color="gray.200" mb={2}>
                     Solution:
                   </Text>
-                  <Text color={useColorModeValue('gray.600', 'gray.300')} mb={4}>
+                  <Text color="gray.300" mb={4}>
                     {study.solution}
                   </Text>
                   
-                  <Text fontWeight="semibold" color={useColorModeValue('gray.700', 'gray.200')} mb={2}>
+                  <Text fontWeight="semibold" color="gray.200" mb={2}>
                     Results:
                   </Text>
                   <VStack align="start" spacing={2} mb={4}>
                     {study.results.map((result, i) => (
-                      <Text key={i} color={useColorModeValue('gray.600', 'gray.300')} fontSize="sm">
+                      <Text key={i} color="gray.300" fontSize="sm">
                         • {result}
                       </Text>
                     ))}
                   </VStack>
                   
                   <Box>
-                    <Text fontWeight="semibold" color={useColorModeValue('gray.700', 'gray.200')} mb={2}>
+                    <Text fontWeight="semibold" color="gray.200" mb={2}>
                       Technologies:
                     </Text>
                     <Box display="flex" flexWrap="wrap" gap={2}>
@@ -153,18 +153,18 @@ const MarinaExplorer = () => {
         </SimpleGrid>
 
         {/* CTA Section */}
-        <Box textAlign="center" py={10} bg={useColorModeValue('gray.50', 'gray.700')} borderRadius="lg">
+        <Box textAlign="center" py={10} bg={cardBg} borderRadius="lg" borderWidth="1px" borderColor={borderColor}>
           <VStack spacing={6}>
-            <Heading as="h2" size="xl" color={useColorModeValue('navy.600', 'white')}>
+            <Heading as="h2" size="xl" color="gray.100">
               Ready to Build Your Solution?
             </Heading>
-            <Text fontSize="lg" color={useColorModeValue('gray.600', 'gray.300')}>
+            <Text fontSize="lg" color="gray.300">
               Let's discuss how we can help improve your cloud infrastructure
             </Text>
             <Button
               as={RouterLink}
               to="/contact"
-              colorScheme="blue"
+              colorScheme="brand"
               size="lg"
             >
               Get in Touch
@@ -176,4 +176,4 @@ const MarinaExplorer = () => {
   )
 }
 
-export default MarinaExplorer
+export default CaseStudies

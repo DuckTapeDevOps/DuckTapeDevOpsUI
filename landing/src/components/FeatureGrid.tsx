@@ -1,4 +1,4 @@
-import { SimpleGrid, Box, Icon, Heading, Text, useColorModeValue } from '@chakra-ui/react'
+import { SimpleGrid, Box, Icon, Heading, Text } from '@chakra-ui/react'
 import { type IconType } from 'react-icons'
 
 interface Feature {
@@ -19,10 +19,10 @@ export const FeatureGrid = ({
   columns = { base: 1, md: 3 }, 
   variant = 'card' 
 }: FeatureGridProps) => {
-  const cardBg = useColorModeValue('white', 'gray.700')
-  const borderColor = useColorModeValue('gray.200', 'gray.600')
-  const simpleBg = useColorModeValue('blue.50', 'gray.700')
-  const simpleBorder = useColorModeValue('blue.100', 'gray.600')
+  const cardBg = 'space.800' // Dark grey cards
+  const borderColor = 'space.700' // Dark grey borders
+  const simpleBg = 'space.800' // Dark grey simple variant
+  const simpleBorder = 'space.600' // Dark grey simple border
 
   return (
     <SimpleGrid columns={columns} spacing={variant === 'card' ? 6 : 8}>
@@ -39,21 +39,18 @@ export const FeatureGrid = ({
           <Icon 
             as={feature.icon} 
             boxSize={12} 
-            color={feature.color || 'blue.500'} 
+            color={feature.color || 'brand.500'} 
             mb={4} 
           />
           <Heading 
             as="h3" 
             size="md" 
             mb={3} 
-            color={useColorModeValue(
-              variant === 'card' ? 'gray.800' : 'blue.700', 
-              variant === 'card' ? 'white' : 'blue.300'
-            )}
+            color="gray.100"
           >
             {feature.title}
           </Heading>
-          <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.300')}>
+          <Text fontSize="sm" color="gray.300">
             {feature.description}
           </Text>
         </Box>
