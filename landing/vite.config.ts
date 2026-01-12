@@ -1,10 +1,19 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+// Calculate base path for GitHub Pages PR previews
+// Format: /DuckTapeDevOpsUI/pr-{number}/
+const getBasePath = () => {
+  if (process.env.PR_NUMBER) {
+    return `/DuckTapeDevOpsUI/pr-${process.env.PR_NUMBER}/`
+  }
+  return '/' // Default for production
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: getBasePath(),
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

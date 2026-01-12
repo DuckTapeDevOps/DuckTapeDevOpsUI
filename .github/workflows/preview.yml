@@ -1,0 +1,57 @@
+name: Deploy PR Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    if: github.event.action != 'closed'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.16.0
+          cache: 'npm'
+          cache-dependency-path: landing/package-lock.json
+      
+      - name: Install dependencies
+        run: |
+          cd landing
+          npm ci
+      
+      - name: Build
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          cd landing
+          npm run build
+      
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: landing/dist/
+          preview-branch: gh-pages
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+  cleanup-preview:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'closed'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Cleanup preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          cleanup: true
+          preview-branch: gh-pages
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
