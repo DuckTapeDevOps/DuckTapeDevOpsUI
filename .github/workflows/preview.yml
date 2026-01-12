@@ -40,7 +40,7 @@ jobs:
         with:
           source-dir: landing/dist/
           preview-branch: gh-pages
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   cleanup-preview:
     runs-on: ubuntu-latest
@@ -52,6 +52,6 @@ jobs:
       - name: Cleanup preview
         uses: rossjrw/pr-preview-action@v1
         with:
-          cleanup: true
+          action: cleanup
           preview-branch: gh-pages
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
