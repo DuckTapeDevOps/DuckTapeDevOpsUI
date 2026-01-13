@@ -1,65 +1,12 @@
 import { Box, Container, Heading, Text, VStack, HStack, SimpleGrid, Button, Badge } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
-import { FaCloud, FaCode, FaChartLine, FaRocket } from 'react-icons/fa'
+import { getAllCaseStudies } from '../../content/case-studies'
 
 const CaseStudies = () => {
   const cardBg = 'space.800' // Dark grey cards
   const borderColor = 'space.700' // Dark grey borders
 
-  const caseStudies = [
-    {
-      title: "E-commerce Platform Migration",
-      industry: "Retail",
-      challenge: "Legacy infrastructure couldn't handle peak traffic during sales events",
-      solution: "Migrated to AWS ECS with auto-scaling, implemented CloudFront CDN, optimized RDS queries, and added Redis caching",
-      results: [
-        "Handled 10x traffic during Black Friday",
-        "50% reduction in infrastructure costs",
-        "99.9% uptime during peak periods"
-      ],
-      technologies: ["ECS", "CloudFront", "RDS", "Redis", "Terraform"],
-      icon: FaCloud
-    },
-    {
-      title: "Serverless SaaS Platform",
-      industry: "SaaS",
-      challenge: "High operational overhead and slow deployment cycles",
-      solution: "Built serverless architecture with Lambda, API Gateway, DynamoDB, and EventBridge for event-driven workflows",
-      results: [
-        "80% reduction in operational overhead",
-        "Deployment time reduced from days to minutes",
-        "Pay-per-use cost model scales automatically"
-      ],
-      technologies: ["Lambda", "API Gateway", "DynamoDB", "EventBridge", "SAM"],
-      icon: FaCode
-    },
-    {
-      title: "Enterprise Cloud Migration",
-      industry: "Enterprise",
-      challenge: "On-premises systems needed cloud migration with zero downtime",
-      solution: "Designed Terraform-based infrastructure with blue-green deployment strategy and automated migration scripts",
-      results: [
-        "Zero-downtime migration completed in 6 months",
-        "40% cost reduction vs on-premises",
-        "Improved disaster recovery capabilities"
-      ],
-      technologies: ["ECS", "RDS", "VPC", "Terraform", "GitLab CI/CD"],
-      icon: FaRocket
-    },
-    {
-      title: "Observability & Monitoring Overhaul",
-      industry: "Technology",
-      challenge: "Lack of visibility into production systems causing slow incident response",
-      solution: "Implemented comprehensive observability stack with CloudWatch, X-Ray, and custom dashboards",
-      results: [
-        "Mean time to detection reduced by 90%",
-        "Proactive alerting prevents issues before users notice",
-        "Better cost visibility and optimization"
-      ],
-      technologies: ["CloudWatch", "X-Ray", "Grafana", "Terraform"],
-      icon: FaChartLine
-    }
-  ]
+  const caseStudies = getAllCaseStudies()
 
   return (
     <Container maxW="container.xl" py={10}>
@@ -76,76 +23,80 @@ const CaseStudies = () => {
 
         {/* Case Studies Grid */}
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8}>
-          {caseStudies.map((study, index) => (
+          {caseStudies.map((study) => (
             <Box
-              key={index}
+              key={study.slug}
+              as={study.status === 'published' ? RouterLink : 'div'}
+              to={study.status === 'published' ? `/case-studies/${study.slug}` : undefined}
               p={8}
               bg={cardBg}
               borderWidth="1px"
               borderRadius="lg"
               borderColor={borderColor}
-              _hover={{ shadow: "lg", transform: "translateY(-2px)" }}
+              _hover={study.status === 'published' ? { shadow: "lg", transform: "translateY(-2px)", borderColor: "brand.500" } : {}}
               transition="all 0.2s"
+              cursor={study.status === 'published' ? 'pointer' : 'default'}
+              textDecoration="none"
+              display="block"
             >
               <VStack align="start" spacing={6}>
-                <Box display="flex" alignItems="center" gap={4} width="100%">
-                  <Box
-                    p={3}
-                    bg="space.700"
-                    borderRadius="lg"
-                  >
-                    <study.icon size={24} color="brand.500" />
-                  </Box>
-                  <Box flex={1}>
-                    <HStack spacing={2} mb={2}>
-                      <Badge colorScheme="blue" variant="subtle">
-                        {study.industry}
+                <Box width="100%">
+                  <HStack spacing={2} mb={3} flexWrap="wrap">
+                    <Badge colorScheme="blue" variant="subtle">
+                      {study.industry}
+                    </Badge>
+                    <Badge colorScheme="gray" variant="outline">
+                      {study.engagementType}
+                    </Badge>
+                    {study.status === 'coming-soon' && (
+                      <Badge colorScheme="orange" variant="solid">
+                        Coming Soon
                       </Badge>
-                    </HStack>
-                    <Heading as="h3" size="lg" color="gray.100">
-                      {study.title}
-                    </Heading>
-                  </Box>
+                    )}
+                  </HStack>
+                  <Heading as="h3" size="lg" color="gray.100" mb={2}>
+                    {study.title}
+                  </Heading>
+                  <Text color="gray.400" fontSize="sm" mb={4}>
+                    {study.duration}
+                  </Text>
                 </Box>
 
-                <Box>
-                  <Text fontWeight="semibold" color="gray.200" mb={2}>
-                    Challenge:
-                  </Text>
-                  <Text color="gray.300" mb={4}>
-                    {study.challenge}
-                  </Text>
-                  
-                  <Text fontWeight="semibold" color="gray.200" mb={2}>
-                    Solution:
-                  </Text>
-                  <Text color="gray.300" mb={4}>
-                    {study.solution}
-                  </Text>
-                  
-                  <Text fontWeight="semibold" color="gray.200" mb={2}>
-                    Results:
-                  </Text>
-                  <VStack align="start" spacing={2} mb={4}>
-                    {study.results.map((result, i) => (
-                      <Text key={i} color="gray.300" fontSize="sm">
-                        • {result}
-                      </Text>
-                    ))}
-                  </VStack>
-                  
-                  <Box>
-                    <Text fontWeight="semibold" color="gray.200" mb={2}>
-                      Technologies:
+                <Box width="100%">
+                  {study.status === 'coming-soon' ? (
+                    <Text color="gray.300">
+                      {study.shortDescription}
                     </Text>
-                    <Box display="flex" flexWrap="wrap" gap={2}>
-                      {study.technologies.map((tech, i) => (
-                        <Badge key={i} colorScheme="gray" variant="outline">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </Box>
-                  </Box>
+                  ) : (
+                    <>
+                      {study.overview && (
+                        <>
+                          <Text color="gray.300" mb={4} noOfLines={4}>
+                            {study.overview}
+                          </Text>
+                          {study.technologies && study.technologies.length > 0 && (
+                            <Box>
+                              <Text fontWeight="semibold" color="gray.200" mb={2} fontSize="sm">
+                                Technologies:
+                              </Text>
+                              <Box display="flex" flexWrap="wrap" gap={2}>
+                                {study.technologies.slice(0, 5).map((tech, i) => (
+                                  <Badge key={i} colorScheme="gray" variant="outline" fontSize="xs">
+                                    {tech}
+                                  </Badge>
+                                ))}
+                                {study.technologies.length > 5 && (
+                                  <Badge colorScheme="gray" variant="outline" fontSize="xs">
+                                    +{study.technologies.length - 5} more
+                                  </Badge>
+                                )}
+                              </Box>
+                            </Box>
+                          )}
+                        </>
+                      )}
+                    </>
+                  )}
                 </Box>
               </VStack>
             </Box>

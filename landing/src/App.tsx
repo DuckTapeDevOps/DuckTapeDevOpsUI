@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import Home from './pages/Home'
 import CaseStudies from './pages/CaseStudies'
+import CaseStudyDetail from './pages/CaseStudyDetail'
 import Process from './pages/Process'
 import Services from './pages/Services'
 import Contact from './components/Contact'
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
             <Route path="/process" element={<Process />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />

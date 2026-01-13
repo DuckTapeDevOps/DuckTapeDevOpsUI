@@ -123,10 +123,6 @@ export const siteConfig: SiteConfig = {
     {
       label: "Case Studies",
       path: "/case-studies",
-      badge: {
-        text: "BETA",
-        colorScheme: "orange",
-      },
     },
     {
       label: "Process",
