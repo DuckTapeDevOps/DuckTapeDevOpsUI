@@ -7,6 +7,8 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  pages: write
+  id-token: write
 
 jobs:
   deploy-preview:
@@ -40,6 +42,7 @@ jobs:
         with:
           source-dir: landing/dist/
           preview-branch: gh-pages
+          pr-number: ${{ github.event.pull_request.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
   cleanup-preview:
@@ -54,4 +57,5 @@ jobs:
         with:
           action: cleanup
           preview-branch: gh-pages
+          pr-number: ${{ github.event.pull_request.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
