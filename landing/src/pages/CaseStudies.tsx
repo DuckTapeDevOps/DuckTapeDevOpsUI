@@ -1,6 +1,7 @@
 import { Box, Container, Heading, Text, VStack, HStack, SimpleGrid, Button, Badge } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
 import { getAllCaseStudies } from '../../content/case-studies'
+import SEO from '../components/SEO'
 
 const CaseStudies = () => {
   const cardBg = 'space.800' // Dark grey cards
@@ -9,13 +10,19 @@ const CaseStudies = () => {
   const caseStudies = getAllCaseStudies()
 
   return (
-    <Container maxW="container.xl" py={10}>
-      <VStack spacing={12} align="stretch">
-        {/* Header */}
-        <Box textAlign="center">
-          <Heading as="h1" size="2xl" mb={6} color="gray.100">
-            Case Studies
-          </Heading>
+    <>
+      <SEO 
+        title="Case Studies"
+        description="Real-world cloud architecture and DevOps case studies from DuckTapeDevOps. See how we've helped organizations like Condé Nast, Massdriver, and startups build scalable infrastructure."
+        path="/case-studies"
+      />
+      <Container maxW="container.xl" py={10}>
+        <VStack spacing={12} align="stretch">
+          {/* Header */}
+          <Box textAlign="center">
+            <Heading as="h1" size="2xl" mb={6} color="gray.100">
+              Case Studies
+            </Heading>
           <Text fontSize="xl" maxW="2xl" mx="auto" mb={8} color="gray.300">
             Real-world cloud architecture and DevOps solutions
           </Text>
@@ -124,6 +131,7 @@ const CaseStudies = () => {
         </Box>
       </VStack>
     </Container>
+    </>
   )
 }
 

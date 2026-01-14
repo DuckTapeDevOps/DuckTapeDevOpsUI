@@ -1,7 +1,8 @@
-import { Container, VStack, Box, Image } from '@chakra-ui/react'
+import { Container, VStack, Box, Image, Text } from '@chakra-ui/react'
 import { FaUsers, FaMapMarkerAlt, FaComments, FaShip, FaHeart, FaCloud, FaCode, FaCogs } from 'react-icons/fa'
 import { HeroSection, FeatureGrid, SectionWrapper, NetworkSection, CTASection } from '../components'
 import { siteConfig } from '../config/site'
+import SEO from '../components/SEO'
 
 const Home = () => {
   // Map icons to feature titles (keeping icon mapping logic)
@@ -38,19 +39,31 @@ const Home = () => {
   }
 
   return (
-    <Container maxW="container.xl" py={10}>
-      <VStack spacing={16} align="stretch">
-        <HeroSection
-          title={siteConfig.home.hero.title}
-          subtitle={siteConfig.home.hero.subtitle}
-          description={siteConfig.home.hero.description}
-          primaryButton={{
-            text: siteConfig.home.hero.primaryButton.text,
-            to: siteConfig.home.hero.primaryButton.to,
-            icon: <FaUsers />
-          }}
-          secondaryText={siteConfig.home.hero.secondaryText}
-        />
+    <>
+      <SEO 
+        title="Cloud Architecture & DevOps Consulting"
+        description="Official website of DuckTapeDevOps. Cloud architecture, DevOps, and AI consulting services. AWS-first platform engineering with Terraform, ECS/EKS, and serverless solutions. Veteran intelligence professional turned cloud architect."
+        path="/"
+      />
+      <Container maxW="container.xl" py={10}>
+        <VStack spacing={16} align="stretch">
+          <HeroSection
+            title={siteConfig.home.hero.title}
+            subtitle={siteConfig.home.hero.subtitle}
+            description={siteConfig.home.hero.description}
+            primaryButton={{
+              text: siteConfig.home.hero.primaryButton.text,
+              to: siteConfig.home.hero.primaryButton.to,
+              icon: <FaUsers />
+            }}
+            secondaryText={siteConfig.home.hero.secondaryText}
+          />
+          
+          <Box textAlign="center" py={4}>
+            <Text fontSize="sm" color="gray.400" fontStyle="italic">
+              Official website of DuckTapeDevOps
+            </Text>
+          </Box>
 
         {siteConfig.hero.image && (
           <Box w="100%">
@@ -91,8 +104,9 @@ const Home = () => {
             }
           })}
         />
-      </VStack>
-    </Container>
+        </VStack>
+      </Container>
+    </>
   )
 }
 

@@ -11,6 +11,7 @@ import {
   Badge,
 } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
+import SEO from '../components/SEO'
 import { 
   FaCloud, 
   FaCode, 
@@ -84,9 +85,15 @@ const Services = () => {
   ]
 
   return (
-    <Box>
-      {/* Hero Section */}
-      <Box textAlign="center" py={20}>
+    <>
+      <SEO 
+        title="Services"
+        description="DuckTapeDevOps provides cloud architecture, DevOps, CI/CD, observability, security, and cost optimization services. AWS-first platform engineering with Terraform and serverless solutions."
+        path="/services"
+      />
+      <Box>
+        {/* Hero Section */}
+        <Box textAlign="center" py={20}>
         <Container maxW="container.xl">
           <VStack spacing={8}>
             <Heading 
@@ -320,6 +327,7 @@ const Services = () => {
         </VStack>
       </Container>
     </Box>
+    </>
   )
 }
 

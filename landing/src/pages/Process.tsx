@@ -12,6 +12,7 @@ import {
 import { Link as RouterLink } from 'react-router-dom'
 import { FaSearch, FaDraftingCompass, FaCode, FaGraduationCap } from 'react-icons/fa'
 import { siteConfig } from '../config/site'
+import SEO from '../components/SEO'
 
 const Process = () => {
   const cardBg = 'space.800' // Dark grey cards
@@ -47,10 +48,16 @@ const Process = () => {
   ]
 
   return (
-    <Container maxW="container.xl" py={10}>
-      <VStack spacing={12} align="stretch">
-        {/* Hero Section */}
-        <Box textAlign="center" py={10}>
+    <>
+      <SEO 
+        title="Our Process"
+        description="Learn how DuckTapeDevOps works: intelligence planning, operator execution, knowledge transfer, and product ownership. We plan like intel, execute like operators."
+        path="/process"
+      />
+      <Container maxW="container.xl" py={10}>
+        <VStack spacing={12} align="stretch">
+          {/* Hero Section */}
+          <Box textAlign="center" py={10}>
           <Heading as="h1" size="2xl" mb={4} color="gray.100">
             {siteConfig.howItWorks.title}
           </Heading>
@@ -176,6 +183,7 @@ const Process = () => {
         </Box>
       </VStack>
     </Container>
+    </>
   )
 }
 

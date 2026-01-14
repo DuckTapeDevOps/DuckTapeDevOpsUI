@@ -98,6 +98,28 @@ export interface SiteConfig {
       description: string
     }>
   }
+  seo: {
+    baseUrl: string
+    defaultDescription: string
+    social: {
+      linkedinCompany: string
+      linkedinPersonal: string
+      twitch: string
+      github: string
+    }
+    organization: {
+      name: string
+      legalName: string
+      url: string
+      logo: string
+      description: string
+    }
+    person: {
+      name: string
+      jobTitle: string
+      email: string
+    }
+  }
 }
 
 export const siteConfig: SiteConfig = {
@@ -260,6 +282,28 @@ export const siteConfig: SiteConfig = {
         description: "Your team owns the product completely. We ensure you have the knowledge, documentation, and confidence to extend and maintain independently for the next project.",
       },
     ],
+  },
+  seo: {
+    baseUrl: "https://ducktapedevops.com",
+    defaultDescription: "DuckTapeDevOps provides cloud architecture, DevOps, and AI consulting services. AWS-first platform engineering with Terraform, ECS/EKS, and serverless solutions. Veteran intelligence professional turned cloud architect.",
+    social: {
+      linkedinCompany: "https://www.linkedin.com/company/ducktapedevops",
+      linkedinPersonal: "https://www.linkedin.com/in/nic-benton",
+      twitch: "https://www.twitch.tv/ducktapedevops",
+      github: "https://github.com/DuckTapeDevOps",
+    },
+    organization: {
+      name: "DuckTapeDevOps",
+      legalName: "DuckTapeDevOps LLC",
+      url: "https://ducktapedevops.com",
+      logo: "https://ducktapedevops.com/brand/logo.png",
+      description: "Cloud architecture and DevOps consulting. We plan like intel, execute like operators, and leave your team owning the product and capable of both strategic and tactical execution.",
+    },
+    person: {
+      name: "Nick Benton",
+      jobTitle: "Founder & Cloud Architect",
+      email: "nic@ducktapedevops.com",
+    },
   },
 }
 

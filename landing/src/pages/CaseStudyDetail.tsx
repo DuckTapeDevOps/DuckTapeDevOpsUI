@@ -2,6 +2,7 @@ import { Box, Container, Heading, Text, VStack, HStack, Badge, Button, Divider }
 import { Link as RouterLink, useParams, useNavigate } from 'react-router-dom'
 import { ArrowBackIcon } from '@chakra-ui/icons'
 import { getCaseStudyBySlug } from '../../content/case-studies'
+import SEO from '../components/SEO'
 
 const CaseStudyDetail = () => {
   const { slug } = useParams<{ slug: string }>()
@@ -10,11 +11,18 @@ const CaseStudyDetail = () => {
 
   if (!caseStudy) {
     return (
-      <Container maxW="container.xl" py={10}>
-        <VStack spacing={6}>
-          <Heading as="h1" size="xl" color="gray.100">
-            Case Study Not Found
-          </Heading>
+      <>
+        <SEO 
+          title="Case Study Not Found"
+          description="The requested case study could not be found."
+          path="/case-studies/not-found"
+          noindex
+        />
+        <Container maxW="container.xl" py={10}>
+          <VStack spacing={6}>
+            <Heading as="h1" size="xl" color="gray.100">
+              Case Study Not Found
+            </Heading>
           <Text color="gray.300">
             The case study you're looking for doesn't exist.
           </Text>
@@ -28,12 +36,20 @@ const CaseStudyDetail = () => {
           </Button>
         </VStack>
       </Container>
+      </>
     )
   }
 
   if (caseStudy.status === 'coming-soon') {
     return (
-      <Container maxW="container.xl" py={10}>
+      <>
+        <SEO 
+          title={caseStudy.title}
+          description={caseStudy.shortDescription || `Case study for ${caseStudy.client}`}
+          path={`/case-studies/${caseStudy.slug}`}
+          noindex
+        />
+        <Container maxW="container.xl" py={10}>
         <VStack spacing={6}>
           <Button
             onClick={() => navigate('/case-studies')}
@@ -55,11 +71,24 @@ const CaseStudyDetail = () => {
           </Text>
         </VStack>
       </Container>
+      </>
     )
   }
 
+  // Generate description from overview or key takeaway
+  const metaDescription = caseStudy.keyTakeaway 
+    ? `${caseStudy.overview?.substring(0, 100)}... ${caseStudy.keyTakeaway}`
+    : caseStudy.overview?.substring(0, 160) || `Case study: ${caseStudy.title} - ${caseStudy.client}`
+
   return (
-    <Container maxW="container.lg" py={10}>
+    <>
+      <SEO 
+        title={caseStudy.title}
+        description={metaDescription}
+        path={`/case-studies/${caseStudy.slug}`}
+        type="article"
+      />
+      <Container maxW="container.lg" py={10}>
       <VStack spacing={8} align="stretch">
         {/* Back Button */}
         <Button
@@ -272,6 +301,7 @@ const CaseStudyDetail = () => {
         </Box>
       </VStack>
     </Container>
+    </>
   )
 }
 
