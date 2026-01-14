@@ -1,10 +1,17 @@
 import { Box, Container, Heading, Text, Stack, Button, HStack, Icon, Link, useColorModeValue } from '@chakra-ui/react'
 import { FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import { siteConfig } from '../../config/site'
+import SEO from '../../components/SEO'
 
 const Contact = () => {
   return (
-    <Box py={20} bg="space.800">
+    <>
+      <SEO 
+        title="Contact Us"
+        description="Get in touch with DuckTapeDevOps. Connect on LinkedIn or send us an email to discuss your cloud architecture and DevOps needs."
+        path="/contact"
+      />
+      <Box py={20} bg="space.800">
       <Container maxW="container.xl">
         <Stack gap={12} textAlign="center">
           <Stack gap={4}>
@@ -55,6 +62,7 @@ const Contact = () => {
         </Stack>
       </Container>
     </Box>
+    </>
   )
 }
 
