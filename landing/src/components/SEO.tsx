@@ -46,7 +46,18 @@ const SEO = ({
     name: siteConfig.seo.organization.name,
     legalName: siteConfig.seo.organization.legalName,
     url: siteConfig.seo.organization.url,
-    logo: siteConfig.seo.organization.logo,
+    logo: {
+      '@type': 'ImageObject',
+      url: siteConfig.seo.organization.logo,
+      width: 800,
+      height: 656,
+    },
+    image: {
+      '@type': 'ImageObject',
+      url: siteConfig.seo.organization.logo,
+      width: 800,
+      height: 656,
+    },
     description: siteConfig.seo.organization.description,
     sameAs: organizationSameAs,
     founder: {
@@ -92,6 +103,8 @@ const SEO = ({
       logo: {
         '@type': 'ImageObject',
         url: siteConfig.seo.organization.logo,
+        width: 800,
+        height: 656,
       },
     },
   }
